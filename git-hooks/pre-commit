@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Exit on error, unset variables and pipeline errors
+set -euo pipefail
+
+# This is just an example.
+# Only run some fast checks, the rest is done on CI
+# because it would be too annoing to run on every commit.
+# Feel free to ignore any of these with --no-verify when not pushing to master.
+
+./extra-lints.sh

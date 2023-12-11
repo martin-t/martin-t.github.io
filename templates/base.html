@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Well, hello there... -->
+
+<!-- LATER 404 to a draft should attempt to open post and/or display an explanation. -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Martin-t's blog about programming, Rust and FOSS">
+  <meta name="author" content="Martin Taibr">
+  <meta name="keywords" content="martin-t, blog, programming, rust, linux, foss, gamedev">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--
+    Yeah, yeah, what a cute title. It's out of necessity, not because i wanted to be funny and original.
+    I was perfectly happy with just "martin-t's blog" but firefox doesn't render apostrophes in titles.
+    So here we are, day 1, hour 1 of writing a blog and i am already dealing with random webshit issues outside of my control.
+  -->
+  <title>martin-t::blog</title>
+
+  <link rel="icon" href="/resf-black-export-drawing-100x100.png">
+
+  <!--
+    Include the default font as base64 in the main HTML file
+    so it's all loaded in one request
+    to prevent a noticeable font change on load.
+
+    Note that it still sometimes happens, at least when testing locally with `zola serve`. No idea why.
+  -->
+  <!--
+    LATER Switch to woff or woff2, it's 2x smaller,
+    maybe only include a subset (10 smaller), then use url for the full fallback.
+    https://www.fontsquirrel.com/fonts/computer-modern
+  -->
+  {% include "font-computer-modern.html" %}
+
+  <!--
+    Normalize CSS between browsers.
+    Also apparently makes some changes in the name of sanity
+    like using `box-sizing: border-box`.
+
+    https://raw.githubusercontent.com/sindresorhus/modern-normalize/main/modern-normalize.css
+  -->
+  {% include "modern-normalize.html" %}
+
+  <style>
+    /* Fonts */
+
+    /*
+    Notes to self:
+    - They're only downloaded when they're actually used.
+    - Normal is font-weight: 400, bold is 700 (they're synonyms): https://www.w3.org/TR/css-fonts-3/#font-weight-prop
+    - Italic is properly designed italic, if missing, the browser will fake it, this is called oblique/slanted.
+    */
+
+    /* Computer Modern - used in LaTeX */
+    /* https://www.1001fonts.com/cmu-font.html */
+    /* Included above */
+
+    /* Liberation Serif - used by LibreOffice and https://acoup.blog/ */
+    /* https://www.1001fonts.com/liberation-serif-font.html */
+    @font-face {
+      font-family: "Liberation Serif";
+      src: url("/liberation-serif.regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Liberation Serif";
+      src: url("/liberation-serif.bold.ttf") format("truetype");
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: "Liberation Serif";
+      src: url("/liberation-serif.italic.ttf") format("truetype");
+      font-style: italic;
+    }
+    @font-face {
+      font-family: "Liberation Serif";
+      src: url("/liberation-serif.bold-italic.ttf") format("truetype");
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    /* Lora - used by https://martinfowler.com/ */
+    /* https://www.1001fonts.com/lora-font.html */
+    @font-face {
+      font-family: "Lora";
+      src: url("/lora.regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Lora";
+      src: url("/lora.bold.ttf") format("truetype");
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: "Lora";
+      src: url("/lora.italic.ttf") format("truetype");
+      font-style: italic;
+    }
+    @font-face {
+      font-family: "Lora";
+      src: url("/lora.bold-italic.ttf") format("truetype");
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    /* Alegreya - used by https://josephg.com/blog/ */
+    /* https://www.1001fonts.com/alegreya-font.html */
+    @font-face {
+      font-family: "Alegreya";
+      src: url("/alegreya.regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Alegreya";
+      src: url("/alegreya.bold.ttf") format("truetype");
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: "Alegreya";
+      src: url("/alegreya.italic.ttf") format("truetype");
+      font-style: italic;
+    }
+    @font-face {
+      font-family: "Alegreya";
+      src: url("/alegreya.bold-italic.ttf") format("truetype");
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    :root {
+      --content-width: 45rem;
+      --background-light: #fafafa;
+      --background-light-code: #e8e8e8;
+    }
+
+    /* Basic layout */
+
+    /* header, h1, h2, h3, h4, h5, h6, p, ul { */
+    header, main > *, footer {
+      max-width: var(--content-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Don't restrict image/video width, it makes everything blurry. */
+    /* These tend to be wrapped in a <p> so we use a trick to make then centered
+    even if it means they overflow to the left: https://stackoverflow.com/a/51587511 */
+    img, video {
+      display: block;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Text content */
+
+    /*
+    Pages for playing with colors:
+    - https://colorable.jxnblk.com/
+    - https://coolors.co/
+    */
+
+    body {
+      margin: 1em;
+      background-color: var(--background-light);
+      color: #080808;
+    }
+
+    body.serif {
+      font-family: serif; /* This ends up as Noto Serif on Kubuntu */
+    }
+    body.sans-serif {
+      font-family: sans-serif; /* This ends up as Noto Sans on Kubuntu */
+    }
+    body.computer-modern {
+      font-family: "Computer Modern", serif;
+    }
+    body.liberation-serif {
+      font-family: "Liberation Serif", serif;
+    }
+    body.lora {
+      font-family: "Lora", serif;
+    }
+    body.alegreya {
+      font-family: "Alegreya", serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #bb0e0e;
+      font-weight: normal;
+    }
+
+    em.date {
+      color: #666;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    li {
+      text-align: justify;
+    }
+
+    sup.footnote-reference {
+      margin: 0 0.1em;
+    }
+
+    .footnote-definition p {
+      display: inline;
+      font-size: 0.8em;
+    }
+
+    /* Links */
+
+    a {
+      color: inherit;
+      text-decoration-color: #0000ee;
+    }
+    a:visited {
+      color: inherit;
+      text-decoration-color: #551a8b;
+    }
+    a:hover {
+      color: #666;
+    }
+    a.zola-anchor {
+      text-decoration: none;
+      font-size: 0.8em;
+      margin: 0.2em;
+    }
+
+    /* Header */
+
+    header {
+      margin-bottom: 2em;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    #header-right {
+      float: right;
+    }
+    #header-right a {
+      margin-left: 0.3em;
+    }
+
+    #styles {
+      position: fixed;
+      top: 2em;
+      right: 0;
+      margin: 1em;
+      /* LATER z-index to be above images */
+      background-color: var(--background-light);
+    }
+
+    /* Post lists */
+
+    ul.posts li a {
+      font-size: 1.2em;
+    }
+    a.drafts-link {
+      font-size: 1.2em;
+    }
+
+    /* Tables */
+
+    /* All tables have to be _manually_ wrapped in in this div,
+    zola generates just a naked table element
+    and there doesn't seem to be a way to make it scrollable with just CSS. */
+    div.table {
+      width: fit-content;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 0.3em;
+      border: 1px solid;
+    }
+
+    /* Code blocks */
+    /* Note that code blocks are <pre><code>, inline code is just <code> */
+    /* LATER Zola's syntax highlighting forces a background color. Find a way to toggle style from JS when toggling light vs dark. */
+
+    pre {
+      padding: 0.5em;
+      min-width: var(--content-width);
+      max-width: min-content;
+      margin-left: auto;
+      margin-right: auto;
+      /* Only -x, not -y, otherwise there's room for a scrollbar on the right side
+      which has a different color and looks bad. */
+      overflow-x: auto;
+    }
+    /* The line numbers already provide some kind of left/right padding */
+    pre[data-linenos] {
+      padding: 0.5em 0;
+    }
+    code {
+      font-family: "Computer Modern Typewriter", monospace;
+    }
+    :not(pre) > code {
+      background-color: var(--background-light-code);
+    }
+  </style>
+
+  <script>
+    function setStyle() {
+      var font = document.getElementById("fonts").value;
+      document.body.className = font;
+    }
+    // When reloading or going back, the dropdown keeps its previous value - set the font to it.
+    addEventListener("DOMContentLoaded", setStyle);
+  </script>
+</head>
+
+<body class="computer-modern">
+  <!-- LATER Dropdowns can't be styled,
+  try https://stackoverflow.com/questions/10696004/how-to-change-font-family-of-drop-downs-list-item -->
+  <!--
+    The default needs to be set in 2 places:
+    - In the <select> because the JS uses it.
+    - On the <body> because I hope that might make it use the right font fro mthe start.
+  -->
+  <div id="styles">
+    <label for="fonts">Font:</label>
+    <select name="fonts" id="fonts" onchange="setStyle()">
+      <option value="serif">Serif</option>
+      <option value="sans-serif">Sans-serif</option>
+      <option value="computer-modern" selected>Computer Modern</option>
+      <option value="liberation-serif">Liberation Serif</option>
+      <option value="lora">Lora</option>
+      <option value="alegreya">Alegreya</option>
+    </select>
+  </div>
+
+  <header>
+    <nav>
+      <a href="/">martin-t</a>::{
+      <a href="/posts/">blog</a>,
+      <a href="/projects/">projects</a>,
+      <a href="/about/">about</a>,
+      };
+      <!--
+        Yes, the comma after the last element is intentional
+        because nonretarded langs allow trailing commas.
+      -->
+
+      <div id="header-right">
+        <a href="https://discord.gg/gB9mNdQN5a">Discord</a>
+        <a href="https://github.com/martin-t">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %} {% endblock %}
+  </main>
+
+  <footer>
+    <!-- LATER "Fix typo" button like matklad has. -->
+  </footer>
+</body>
+
+</html>

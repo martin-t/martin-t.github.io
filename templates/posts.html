@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="title">
+  {{ section.title }}
+</h1>
+
+{% block disclaimer %} {% endblock disclaimer %}
+
+{% if not section.pages %}
+Currently no posts in this section.
+{% endif %}
+
+<ul class="posts">
+  {% for page in section.pages %}
+  <li><em class="date">{{ page.date }}</em>
+  <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+  {% endfor %}
+</ul>
+
+{% block drafts_link %}
+<p><a class="drafts-link" href="/drafts/">Drafts</a></p>
+{% endblock drafts_link %}
+
+
+{% endblock content %}
