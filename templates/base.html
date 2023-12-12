@@ -224,10 +224,55 @@
     a:hover {
       color: #666;
     }
+
+    /* Anchors */
+
+    /* The anchor created by zola is <h2><a/></h2>.
+    We use float:left and a negative margin on the <a>
+    so that headings align with other test and the anchors are to the left.
+
+    We also want to hide the anchors, unless the heading _or anchor_ is hovered over.
+    The issue is there's a gap between the heading's text and the anchor
+    so the anchor disappears when the mouse is over the gap.
+    To fix this, we create a pseudo-element that covers the gap (and the anchor).
+    Based on https://stackoverflow.com/questions/48753252/enable-hover-on-margin.
+    */
+
+    /* LATER Consider using § and hiding the real clickable anchor */
+
+    h2, h3, h4, h5, h6 {
+      /* Not sure why but the pseudo-element doesn't work without this */
+      position: relative;
+    }
+    a.zola-anchor::after {
+      content: "";
+
+      /* Make a box big enough to cover the anchor positioned after the anchor. */
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2em;
+
+      /* Position the box over the anchor so it doesn't overlap the heading so the text is selectable. */
+      right: 100%;
+    }
     a.zola-anchor {
+      /* Not using display:none so it still registers hover even when hidden. */
+      opacity: 0;
+
+      /* Put anchors to the left of headings while keeping headings aligned with other text. */
+      margin-left: -1.5em;
+      margin-top: 0.5em;
+      float: left;
+
+      /* The default link symbol (in firefox) is too ugly when large. */
+      font-size: 0.6em;
+    }
+    :hover > a.zola-anchor, a.zola-anchor:hover {
+      /* Make the anchor visible when hovering above the heading or the anchor itself. */
+      opacity: 1;
+
       text-decoration: none;
-      font-size: 0.8em;
-      margin: 0.2em;
     }
 
     /* Header */
@@ -349,7 +394,7 @@
       -->
 
       <div id="header-right">
-        <a href="https://discord.gg/gB9mNdQN5a">Discord</a>
+        <a href="https://discord.gg/gB9mNdQN5a">Discord</a> <!-- TODO tooltip My Rusty Games server -->
         <a href="https://github.com/martin-t">GitHub</a>
       </div>
     </nav>
@@ -361,6 +406,8 @@
 
   <footer>
     <!-- LATER "Fix typo" button like matklad has. -->
+    <!-- LATER Share on reddit/hn/twitter/whatever? -->
+    <!-- LATER Comments or only on some pages? -->
   </footer>
 </body>
 

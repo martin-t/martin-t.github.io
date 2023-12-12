@@ -27,7 +27,7 @@ And for the love of flying spaghetti monster, if you read this and still put foo
 Some websites and how they do it:
 
 - [stilldrinking.org](http://www.stilldrinking.org/grammar-maquis) ([archive](https://web.archive.org/web/20231025082455/http://www.stilldrinking.org/grammar-maquis)) - Position calculated ahead of time and hardcoded, does not change when editing the HTML. Not idea how to do this in zola / with styles.
-- [verdagon.dev / Vale lang](https://verdagon.dev/blog/generational-references) ([archive](https://web.archive.org/web/20231013010305/https://verdagon.dev/blog/generational-references)) - Seems to use some layout trick, automatically adjusts based on text length but the sidenotes can end up overlapping in some cases.
+- [verdagon.dev](https://verdagon.dev/blog/generational-references) ([archive](https://web.archive.org/web/20231013010305/https://verdagon.dev/blog/generational-references)) - Seems to use some layout trick, automatically adjusts based on text length but the sidenotes can end up overlapping in some cases.
 - [predr.ag](https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/) ([archive](https://web.archive.org/web/20231015013845/https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/)) - Sidenotes are part of the paragraph in HTML and positioned to the side using CSS. They never overlap with each other but sometimes do with headings.
 
 And [here's](https://gwern.net/sidenote) a guy writing thousands of words on this basic topic.

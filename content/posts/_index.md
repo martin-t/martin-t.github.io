@@ -3,5 +3,5 @@ title = "Blog posts"
 sort_by = "date"
 template = "posts.html"
 page_template = "post.html"
-insert_anchor_links = "right"
+insert_anchor_links = "left"
 +++
