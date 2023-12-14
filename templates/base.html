@@ -146,10 +146,24 @@
     /* Don't restrict image/video width, it makes everything blurry. */
     /* These tend to be wrapped in a <p> so we use a trick to make then centered
     even if it means they overflow to the left: https://stackoverflow.com/a/51587511 */
-    img, video {
+    main > img, main > video {
       display: block;
       margin-left: 50%;
       transform: translateX(-50%);
+    }
+
+    figure.right {
+      float: right;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 2em;
+      margin-right: 0;
+    }
+    figcaption {
+      text-align: center;
+      font-style: italic;
+      margin-top: 0.2em;
+      margin-bottom: 0.75em;
     }
 
     /* Text content */
