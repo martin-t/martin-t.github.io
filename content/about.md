@@ -18,3 +18,5 @@ Currently, I am interested in programming languages and learning ones that are l
 [^least-bad]: For most purposes.
 
 The other interest I plan to cover here is gamedev. Right now I am working on two games in Rust, something that made me open my eyes to Rust's flaws, and it might be time to stop talking about writing a devlog and start writing the devlog.
+
+<!-- My first Linux was Ophcrack. -->

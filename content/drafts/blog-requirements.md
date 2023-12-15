@@ -24,6 +24,8 @@ On mobile, allow tapping to expand them instead.
 
 And for the love of flying spaghetti monster, if you read this and still put footnotes at the bottom for whatever reason, at least make them link back.
 
+<!-- TODO Feel free to substitute with your fairytale creature of choice. -->
+
 Some websites and how they do it:
 
 - [stilldrinking.org](http://www.stilldrinking.org/grammar-maquis) ([archive](https://web.archive.org/web/20231025082455/http://www.stilldrinking.org/grammar-maquis)) - Position calculated ahead of time and hardcoded, does not change when editing the HTML. Not idea how to do this in zola / with styles.
@@ -32,13 +34,13 @@ Some websites and how they do it:
 
 And [here's](https://gwern.net/sidenote) a guy writing thousands of words on this basic topic.
 
-Some text which contains footnotes[^1][^2]. The paragraph is a little on the long side to test where exactly the footnote renders - it should be next to the footnote reference, not at the end of the paragraph or the next one. Note that Markdown footnotes definitions in HTML are generated at the location where they appear in the Markdown source.
+Footnote definitions[^1][^2] should be next to the footnote references, not at the end of the paragraph or even lower. Note that Markdown footnote definitions in HTML are generated at the location where they appear in the Markdown source so you might have to move them up somehow.
+
+Another paragraph with a footnote[^3].
 
 [^1]: This is a footnote.
 
 [^2]: This is another footnote, this time somewhat longer. Note that in markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. And just like that we got to test a link and an inline code block. Plus _emphasis_, **bold**, and **_bold emphasis_**. Note to self: find a way to have multiple paragraphs. This is an essential feature because like half of the reason I made a blog is so I have a place I can rant to my heart's content. <!-- LATER -->
-
-Another paragraph with footnotes[^3] which should display to the side.
 
 [^3]: This is a third footnote. All three should be on the side of the text, not at the end, and should not overlap with the heading or table below.
 
@@ -80,7 +82,7 @@ Colors - obvious, moving on.
 
 Code should not be wrapped nor should it overflow. Expand the container past the width of normal text if necessary. Same story as tables. We have widescreen monitors, we put normal text in a column because it's more readable. Code squished into a column is not more readable. Don't squish code into a column.[^wide-code]
 
-[^wide-code]: Yes, long lines often indicate bad code. However: 1) As should be obvious if you got this far, sometimes things are more readable wide. Like tables, because, yes, code sometimes contains data that is basically a table. 2) Not all code blocks are code, they can be program output, logs, ASCII art, etc. Also, whenever someone tells you a rule of thumb must be always followed, you can be certain they're the kind of person who can't handle nuance and their advice is not to be trusted. This doesn't apply to the previous sentence, that one is always true.
+[^wide-code]: Yes, long lines often indicate bad code. However: 1) As should be obvious if you got this far, sometimes things are more readable wide. Things like tables, because, yes, code sometimes contains data that is basically a table. 2) Not all code blocks are code, they can be program output, logs, ASCII art, etc. Also, whenever someone tells you a rule of thumb must be always followed, you can be certain they're the kind of person who can't handle nuance and their advice is worthless. This doesn't apply to the previous sentence, that one is always absolutely 100% true.
 
 Only use wrapping / horizontal scrolling if the code block is too wide for the whole screen. Which hopefully never happens unless the content is really _special_.
 
@@ -135,3 +137,5 @@ Oh and footnotes on most websites make me wanna do things to other people with m
 ## So how do I make my website actually readable? Is there a theme or template I can use or something?
 
 Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I have yet to decide whether the blog's source will be public or not.
+
+<!-- How do you generate a random string? You put a first year CS student in front of vim and tell him to save and exit. -->
