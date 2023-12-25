@@ -281,12 +281,13 @@
 
       /* The default link symbol (in firefox) is too ugly when large. */
       font-size: 0.6em;
+
+      /* Override normal link behavior. */
+      text-decoration: none;
     }
     :hover > a.zola-anchor, a.zola-anchor:hover {
       /* Make the anchor visible when hovering above the heading or the anchor itself. */
       opacity: 1;
-
-      text-decoration: none;
     }
 
     /* Header */
