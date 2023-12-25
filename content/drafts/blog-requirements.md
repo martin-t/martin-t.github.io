@@ -70,6 +70,8 @@ Even Wikipeia gets this wrong. The [desktop version](https://en.wikipedia.org/wi
 
 The [mobile version](https://en.m.wikipedia.org/wiki/Comparison_of_operating_system_kernels) is basically the same on a wide screen but when you make the window sufficiently narrow, it changes behavior so that everything is as wide as the screen and each table gets its own scrollbar. Of course that doesn't help you because to get this behavior you need to make the window uselessly narrow in the first place.
 
+And one more thing: If the table is taller than the screen, the header should remain at the top of the screen when scrolling down. There's nothing more annoying than having to scroll up every 10 seconds to look up which column is which. Webpages aren't paper. Keep the header on screen at all times. [Some wikipedia pages](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_density) do this, others don't.
+
 ## Code blocks must have syntax highlighting and behave reasonably
 
 ```rust
@@ -122,9 +124,9 @@ If you want the latest post on your main page in full, that's fine, just offer t
 
 Or provide both if you really must.
 
-Infinite scrolling exists for 2 reasons: mobile users[^phone-buttons] and feeding more dopamine mixed with ads to addicts who would have closed your page if they had to overcome the minuscule inconvenience of clicking a button. It's functionally worse in almost every way when actually searching for something.
+Infinite scrolling exists for 2 reasons: mobile users[^phone-buttons] and feeding marginally more dopamine mixed with ads to addicts who would have closed your page if they had to overcome the minuscule inconvenience of clicking a button. It's functionally worse in almost every way when actually searching for something.
 
-[^phone-buttons]: This is a rant for another day but most people hold a phone so their thumb can reach the middle of the screen, yet most of the controls are either at the top or bottom.
+[^phone-buttons]: This is a rant for another day but most people hold a phone so their thumb can reach the middle of the screen, yet most of the controls (not just for pagination) are either at the top or bottom.
 
 Have a button that goes to the oldest page. Let people see how everything started, especially if your first content was actually good because you had something to day but later became filler.
 
