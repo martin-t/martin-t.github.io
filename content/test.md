@@ -181,10 +181,16 @@ Taller than screen
 
 </div>
 
-## Heading 2 - image TODO <<<>>>
+## Heading 2 - image
 
 Fits in the column
 
+![Image](/stripes-400x32.png)
+
 Overflows the column but fits on the screen
 
+![Image](/stripes-1000x32.png)
+
 Overflows the screen
+
+![Image](/stripes-4000x32.png)

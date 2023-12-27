@@ -136,34 +136,48 @@
 
     /* Basic layout */
 
-    /* header, h1, h2, h3, h4, h5, h6, p, ul { */
+    /*
+    Don't restrict body or main itself
+    because we want stuff like images, tables, code blocks, etc. to be wider
+    when it makes them more readable.
+    Instead, restrict main's children, then make exceptions.
+    */
     header, main > *, footer {
       max-width: var(--content-width);
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* Don't restrict image/video width, it makes everything blurry. */
-    /* These tend to be wrapped in a <p> so we use a trick to make then centered
-    even if it means they overflow to the left: https://stackoverflow.com/a/51587511 */
-    main > img, main > video {
-      display: block;
-      margin-left: 50%;
-      transform: translateX(-50%);
+    /* Header */
+
+    header {
+      margin-bottom: 2em;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    #header-right {
+      float: right;
+    }
+    #header-right a {
+      margin-left: 0.3em;
     }
 
-    figure.right {
-      float: right;
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-left: 2em;
-      margin-right: 0;
+    #styles {
+      position: fixed;
+      top: 2em;
+      right: 0;
+      margin: 1em;
+      /* LATER z-index to be above images */
+      background-color: var(--background-light);
     }
-    figcaption {
-      text-align: center;
-      font-style: italic;
-      margin-top: 0.2em;
-      margin-bottom: 0.75em;
+
+    /* Post lists */
+
+    ul.posts li a {
+      font-size: 1.2em;
+    }
+    a.drafts-link {
+      font-size: 1.2em;
     }
 
     /* Text content */
@@ -252,7 +266,8 @@
     Based on https://stackoverflow.com/questions/48753252/enable-hover-on-margin.
     */
 
-    /* LATER Consider using § and hiding the real clickable anchor */
+    /* LATER Consider using § or # by editing the template */
+    /* https://www.getzola.org/documentation/content/linking/#anchor-insertion */
 
     h2, h3, h4, h5, h6 {
       /* Not sure why but the pseudo-element doesn't work without this */
@@ -290,36 +305,29 @@
       opacity: 1;
     }
 
-    /* Header */
+    /* Images */
 
-    header {
-      margin-bottom: 2em;
-      font-weight: bold;
-      font-size: 1.2em;
+    /* Don't restrict image/video width, it makes everything blurry. */
+    /* These tend to be wrapped in a <p> so we use a trick to make then centered
+    even if it means they overflow to the left: https://stackoverflow.com/a/51587511 */
+    main > img, main > video {
+      display: block;
+      margin-left: 50%;
+      transform: translateX(-50%);
     }
-    #header-right {
+
+    figure.right {
       float: right;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 2em;
+      margin-right: 0;
     }
-    #header-right a {
-      margin-left: 0.3em;
-    }
-
-    #styles {
-      position: fixed;
-      top: 2em;
-      right: 0;
-      margin: 1em;
-      /* LATER z-index to be above images */
-      background-color: var(--background-light);
-    }
-
-    /* Post lists */
-
-    ul.posts li a {
-      font-size: 1.2em;
-    }
-    a.drafts-link {
-      font-size: 1.2em;
+    figcaption {
+      text-align: center;
+      font-style: italic;
+      margin-top: 0.2em;
+      margin-bottom: 0.75em;
     }
 
     /* Tables */
