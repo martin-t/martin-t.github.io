@@ -2,7 +2,7 @@
 title = "Projects"
 +++
 
-FOSS stuff I work on. Join the [Rusty Games discord](https://discord.gg/gB9mNdQN5a) for updates and more.
+FOSS stuff I work on. Join the [Rusty Games Discord](https://discord.gg/gB9mNdQN5a) for updates and more.
 
 ## RustCycles
 

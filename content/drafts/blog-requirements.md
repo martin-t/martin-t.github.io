@@ -12,7 +12,7 @@ Here's a list of rules how I think websites should by "styled" for better readab
 
 With examples.
 
-You'll immediately notice that while I am preaching, my own blog doesn't meet all of them (at the moment). That's because I couldn't find a single Zola theme which ~~looked at least barely acceptable~~ satisfied them. So I guess I am now learning enough HTML/CSS to do it myself ... or at least discover for myself why so few websites do things right, understand why it's literally impossible to put pixels on screen the way I want, and rekindle my hatred for webdev.
+You'll immediately notice that while I am preaching, my own blog doesn't meet all of them (at the moment). That's because I couldn't find a single Zola theme which ~~looked at least barely acceptable~~ satisfied them. So I guess I am now learning enough HTML/CSS to do it myself ... or at least discover on my own why so few websites do things right, understand why it's literally impossible to put pixels on screen the way I want, and rekindle my hatred for webdev.
 
 Note that everything here is my personal opinion but feel free to consider it fact and absolute truth. I have no formal education in design... but these days that should give me _more_ authority when it comes to readability and usability.
 
@@ -40,7 +40,7 @@ Another paragraph with a footnote[^3].
 
 [^1]: This is a footnote.
 
-[^2]: This is another footnote, this time somewhat longer. Note that in markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. And just like that we got to test a link and an inline code block. Plus _emphasis_, **bold**, and **_bold emphasis_**. Note to self: find a way to have multiple paragraphs. This is an essential feature because like half of the reason I made a blog is so I have a place I can rant to my heart's content. <!-- LATER -->
+[^2]: This is another footnote, this time somewhat longer. Note that in markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. And just like that we got to test a link and an inline code block. Plus _emphasis_, **bold**, and **_bold emphasis_**.<br/>Note to self: you can use `<br/>` to write multiple paragraphs. This is an essential feature because like half of the reason I made a blog is so I have a place I can rant to my heart's content.
 
 [^3]: This is a third footnote. All three should be on the side of the text, not at the end, and should not overlap with the heading or table below.
 
@@ -58,15 +58,19 @@ Another paragraph with a footnote[^3].
 
 Once upon a time, websites looked like [this](https://danluu.com/file-consistency/). Then people realized long lines are hard to read, noticed newspapers put text in columns, and started putting everything in columns like [this](http://bettermotherfuckingwebsite.com/). Now, if you're a general intelligence (e.g. an attention-paying human), you should already see the problem. A lot of people don't really care about actual readability, just with following trends and if the trend is to put some things in columns, why not just squish everything into a column, it's less CSS to write and it's fine most of the time.
 
-Guess what, unlike text, tables are not more readable narrow. Especially not if you have to scroll sideways while over half your **wide**screen monitor is filled with empty space because somebody heard some catchy phrase about letting it breath but lacked the mental capacity to consider what it actually means.
+Guess what, unlike text, tables are not more readable narrow. Especially not if you have to scroll sideways while over half your **wide**screen monitor is filled with empty space because somebody heard a catchy phrase about letting it breath but lacked the mental capacity to consider what it actually means.
 
 So here's the rules for maximum readability:
 
 - Tables should be as wide as necessary, not limited by text width.
 - If the table needs to be wider than the monitor, then the horizontal scrollbar should only scroll the table, not the whole page.
-- Tables are used to convey information in a clear and organized manner, information density matters. A table that looks "pretty" at the cost of making you scroll defeats that purpose. Don't add unnecessary whitespace.
+- Tables are used to convey information in a clear and organized manner, information density matters. A table that looks "pretty" at the cost of making you scroll defeats that purpose. Don't add tons of unnecessary whitespace.[^table-whitespace]
 
-Even Wikipeia gets this wrong. The [desktop version](https://en.wikipedia.org/wiki/Comparison_of_operating_system_kernels) doesn't squish tables but if they're too wide, they still start in the middle of the screen instead of more to the left. Yeah, the table of contents is in the way but it can be closed. It's funny, they bothered implementing a way to close it but it's completely useless because it doesn't make the newly empty space usable.
+[^table-whitespace]: This is not just about websites. Compare screenshots of common Windows and Linux tools. WinDirStat vs QDirStat, ProcessExplorer vs any linux system monitor, OlldDbg/x64dbg vs edb. As much as I prefer linux, I always felt its GUI tools were clumsy and inefficient. Then I tried Windows again and realized its tools consistently fit more information on screen because their Linux counterparts have slightly larger fonts, larger icons, thicker borders and put a shitton of unnecessary whitespace around everything.<br/>Not to mention ProcessExplorer doesn't even have a proper alternative. Ever had random CPU usage spikes? On windows you keep PE open and when it happens you mouse over the graph to see which process caused it. Linux doesn't have a single tool that can do that. Some idiot told me Linux is still better because I can _just_ write a script. No. Just no.
+
+Even Wikipeia gets this wrong. The [desktop version](https://en.wikipedia.org/wiki/Comparison_of_operating_system_kernels) doesn't squish tables but if they're too wide, they still start in the middle of the screen instead of more to the left. Yeah, the table of contents is in the way but it can be closed. It's funny, they bothered implementing a way to close it but it's completely useless because it doesn't make the newly empty space usable.[^why-calgo-culting]
+
+[^why-calgo-culting]: It's a prime example of cargo culting. The "designers" just repeated what other designers do without every actually thinking about why. I wouldn't be surprised if some people went their entire lives without ever thinking about why they do anything. Don't be like them.
 
 The [mobile version](https://en.m.wikipedia.org/wiki/Comparison_of_operating_system_kernels) is basically the same on a wide screen but when you make the window sufficiently narrow, it changes behavior so that everything is as wide as the screen and each table gets its own scrollbar. Of course that doesn't help you because to get this behavior you need to make the window uselessly narrow in the first place.
 
@@ -88,9 +92,9 @@ Code should not be wrapped nor should it overflow. Expand the container past the
 
 Only use wrapping / horizontal scrolling if the code block is too wide for the whole screen. Which hopefully never happens unless the content is really _special_.
 
-And provide a copy button where the "Copied" message is _not_ animated. Seriously, animations exist to make slow things still feel smooth. They lie to the user to make them less annoyed. Copying is instant, the feedback should be instant. BTW, do you wonder why it needs feedback at all? Because people are so used to software being broken they won't trust the button alone.
+And provide a copy button where the "Copied" message is _not_ animated. Seriously, animations exist to make slow things still feel smooth. They lie to the user to make them less annoyed. Copying is instant, the feedback should be instant. BTW, do you wonder why it needs feedback at all? Because people are so used to software being broken they won't trust the button alone.[^count-clicks]
 
-<!-- LATER This would be an interesting experiment: don't give feedback to some users, count how many times they click. -->
+[^count-clicks]: This would be an interesting experiment: don't give feedback to some users, count how many of them click multiple times. <!-- LATER -->
 
 ## Headings must be linkable
 
@@ -114,7 +118,7 @@ The same thing applies to videos. Consider using videos instead of gifs because 
 
 No or very short descriptions. Offer a way to skim all titles and quickly find the one people remember reading but don't remember the exact title.[^google-ctrl-f]
 
-[^google-ctrl-f]: You could use google with `site:` but Ctrl+F has a its charm.
+[^google-ctrl-f]: You could use google with `site:` but Ctrl+F has its charm.
 
 If you want the latest post on your main page in full, that's fine, just offer this list somewhere. There's way too many (wordpress?) blogs where the main page is just one full article after another and you'd have to click through a million pages to find anything or to just scan for topics you like.[^optics-blog]
 
@@ -128,7 +132,7 @@ Infinite scrolling exists for 2 reasons: mobile users[^phone-buttons] and feedin
 
 [^phone-buttons]: This is a rant for another day but most people hold a phone so their thumb can reach the middle of the screen, yet most of the controls (not just for pagination) are either at the top or bottom.
 
-Have a button that goes to the oldest page. Let people see how everything started, especially if your first content was actually good because you had something to day but later became filler.
+Have a button that goes to the oldest page. Let people see how everything started, especially if your first content was actually good because you had something to say and only later became filler.
 
 ## Wait, there's a story behind all this, right?
 
