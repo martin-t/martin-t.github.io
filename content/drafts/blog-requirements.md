@@ -142,6 +142,10 @@ Oh and footnotes on most websites make me wanna do things to other people with m
 
 ## So how do I make my website actually readable? Is there a theme or template I can use or something?
 
-Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I have yet to decide whether the blog's source will be public or not.
+Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I don't plan to make this a reusable theme but the code's available under AGPLv3 and they say imitation is the sincerest form of flattery. <!-- TODO GH link -->
+
+That being a said, I am not a webdev. I learned most of the HTML/CSS I know in the last few weeks. Take that into account.
+
+There's also a [test page](/test) which contains more thorough examples of everything covered here.
 
 <!-- How do you generate a random string? You put a first year CS student in front of vim and tell him to save and exit. -->

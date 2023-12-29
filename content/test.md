@@ -70,7 +70,9 @@ fn main() {
 }
 ```
 
-Overflows the column but fits on the screen
+Overflows the column but fits on the screen[^footnote-wide-code]
+
+[^footnote-wide-code]: This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
 
 ```rust
 fn main() {
@@ -102,7 +104,9 @@ Fits in the column
 
 </div>
 
-Overflows the column but fits on the screen
+Overflows the column but fits on the screen[^footnote-wide-table]
+
+[^footnote-wide-table]: This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
 
 <div class="table">
 
@@ -187,9 +191,11 @@ Fits in the column
 
 ![Image](/stripes-400x32.png)
 
-Overflows the column but fits on the screen
+Overflows the column but fits on the screen[^footnote-wide-image]
 
-![Image](/stripes-1000x32.png)
+[^footnote-wide-image]: This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+
+![Image](/stripes-1200x32.png)
 
 Overflows the screen
 

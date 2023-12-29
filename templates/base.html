@@ -5,6 +5,8 @@
 
 <!-- LATER 404 to a draft should attempt to open post and/or display an explanation. -->
 
+<!-- TODO Social preview for main page and posts (Discord, reddit, ...) -->
+
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Martin-t's blog about programming, Rust and FOSS">
@@ -129,6 +131,7 @@
     }
 
     :root {
+      --body-margin: 1em;
       --content-width: 45rem;
       --background-light: #fafafa;
       --background-light-code: #e8e8e8;
@@ -189,7 +192,7 @@
     */
 
     body {
-      margin: 1em;
+      margin: var(--body-margin);
       background-color: var(--background-light);
       color: #080808;
     }
@@ -229,6 +232,8 @@
     li {
       text-align: justify;
     }
+
+    /* Footnotes */
 
     sup.footnote-reference {
       margin: 0 0.1em;
@@ -307,11 +312,18 @@
 
     /* Images */
 
-    /* Don't restrict image/video width, it makes everything blurry. */
-    /* These tend to be wrapped in a <p> so we use a trick to make then centered
-    even if it means they overflow to the left: https://stackoverflow.com/a/51587511 */
-    main > img, main > video {
+    /*
+    Don't restrict image/video width unless too big for the screen,
+    it makes everything blurry.
+    Note markdown images end up wrapped in a <p>.
+    */
+    main > p > img, main > p > video {
       display: block;
+      max-width: calc(100vw - 2 * var(--body-margin));
+
+      /* Trick to center the image:
+      move the left side to the center,
+      then move it -50% of its width */
       margin-left: 50%;
       transform: translateX(-50%);
     }
