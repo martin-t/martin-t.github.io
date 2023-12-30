@@ -128,7 +128,7 @@ If you want the latest post on your main page in full, that's fine, just offer t
 
 Or provide both if you really must.
 
-Infinite scrolling exists for 2 reasons: mobile users[^phone-buttons] and feeding marginally more dopamine mixed with ads to addicts who would have closed your page if they had to overcome the minuscule inconvenience of clicking a button. It's functionally worse in almost every way when actually searching for something.
+Infinite scrolling exists for 2 reasons: mobile users[^phone-buttons] and feeding marginally more dopamine mixed with ads to addicts who would have closed your page if they had to overcome the minuscule inconvenience of clicking a button. It's functionally worse in almost every way when actually looking for something.
 
 [^phone-buttons]: This is a rant for another day but most people hold a phone so their thumb can reach the middle of the screen, yet most of the controls (not just for pagination) are either at the top or bottom.
 
