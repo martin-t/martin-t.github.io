@@ -1,0 +1,14 @@
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shalzz/zola-deploy-action@v0.18.0
+        env:
+          # Target branch
+          PAGES_BRANCH: gh-pages
+          # Use the automatic token
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
