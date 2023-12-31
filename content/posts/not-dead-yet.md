@@ -3,7 +3,7 @@ title = "Not dead yet"
 date = 2023-12-13
 +++
 
-Every dead blog seems to have a last post explaining that the author is not dead (yet) and about to resume regular blogging any minute now. I can do better; I'll start with that post.
+Every abandoned blog seems to have a last post explaining that the author is not dead (yet) and about to resume regular blogging any minute now. I can do better; I'll start with that post.
 
 Anyway, I plan to write mostly about technical topics - Rust, programming in general, gamedev, and maybe a bit about FOSS.
 
