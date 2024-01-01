@@ -4,6 +4,8 @@ title = "Projects"
 
 FOSS stuff I work on. Join the [Rusty Games Discord](https://discord.gg/gB9mNdQN5a) for updates and more.
 
+<!-- more -->
+
 ## RustCycles
 
 [RustCycles](https://github.com/rustcycles/rustcycles) is a game _and_ a genre-specific game engine for multiplayer shooters - an idea that's been thoroughly tested in Quake and Half-Life, yet so far is completely unknown in the emerging world of Rust gamedev. So I am here to change that.

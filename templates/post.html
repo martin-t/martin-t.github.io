@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
+{% block open_graph %}
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://martin-t.github.io{{ page.path }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.summary }}">
+{% endblock head %}
+
 {% block content %}
 
 <h1 class="title">

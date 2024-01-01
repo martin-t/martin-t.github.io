@@ -2,6 +2,8 @@
 title = "Undefined Behavior Explained with Examples"
 +++
 
+<!-- LATER summary -->
+
 ## ELI5 explnation
 
 Optimizations work by allowing the compiler to make more assumptions about your code. For example, in Rust, there can only be one mutable reference to a given place in memory. So when a function takes 2 mutable references, the compiler assumes they always point to different addresses. This means when you change data through one reference and data from the other is already in registers, it doesn't have to reload the data subsequently accessed through the other reference.
