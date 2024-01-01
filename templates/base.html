@@ -5,7 +5,7 @@
 
 <!-- LATER 404 to a draft should attempt to open post and/or display an explanation. -->
 
-<!-- GH/D icons -->
+<!-- GH/D icons, RSS -->
 
 <!-- LATER Prev/next post -->
 
@@ -15,13 +15,18 @@
     - Smaller font? Maybe only code blocks?
 -->
 
+<!-- LATER Preview image with screenshots of RCs and RWs on the sides? -->
+
+<!-- LATER Larger image preview on discord? https://old.reddit.com/r/discordapp/comments/8li27t/why_are_some_article_images_huge_in_discord_and/ -->
+
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- LATER Meta tags per article? -->
   <meta name="description" content="Martin-t's blog about programming, Rust and FOSS">
   <meta name="author" content="Martin Taibr">
   <meta name="keywords" content="martin-t, blog, programming, rust, linux, foss, gamedev">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Useful for testing: https://addons.mozilla.org/en-US/firefox/addon/open-graph-preview-and-debug/ -->
   <!-- Docs: https://developers.facebook.com/docs/sharing/webmasters/images -->
@@ -44,6 +49,8 @@
   <title>martin-t::blog</title>
 
   <link rel="icon" href="/resf-black-export-drawing-100x100.png">
+
+  <!-- TODO "alternate" to RSS like matklad? -->
 
   <!--
     Include the default font as base64 in the main HTML file
@@ -158,7 +165,7 @@
       --background-light-code: #e8e8e8;
     }
 
-    /* Basic layout */
+    /* Basic layout and style */
 
     /*
     Don't restrict body or main itself
@@ -170,6 +177,31 @@
       max-width: var(--content-width);
       margin-left: auto;
       margin-right: auto;
+    }
+
+    body {
+      margin: var(--body-margin);
+      background-color: var(--background-light);
+      color: #080808;
+      /* font-size: 1.1em; TODO */
+    }
+    body.serif {
+      font-family: serif; /* This ends up as Noto Serif on Kubuntu */
+    }
+    body.sans-serif {
+      font-family: sans-serif; /* This ends up as Noto Sans on Kubuntu */
+    }
+    body.computer-modern {
+      font-family: "Computer Modern", serif;
+    }
+    body.liberation-serif {
+      font-family: "Liberation Serif", serif;
+    }
+    body.lora {
+      font-family: "Lora", serif;
+    }
+    body.alegreya {
+      font-family: "Alegreya", serif;
     }
 
     /* Header */
@@ -212,31 +244,6 @@
     - https://coolors.co/
     */
 
-    body {
-      margin: var(--body-margin);
-      background-color: var(--background-light);
-      color: #080808;
-    }
-
-    body.serif {
-      font-family: serif; /* This ends up as Noto Serif on Kubuntu */
-    }
-    body.sans-serif {
-      font-family: sans-serif; /* This ends up as Noto Sans on Kubuntu */
-    }
-    body.computer-modern {
-      font-family: "Computer Modern", serif;
-    }
-    body.liberation-serif {
-      font-family: "Liberation Serif", serif;
-    }
-    body.lora {
-      font-family: "Lora", serif;
-    }
-    body.alegreya {
-      font-family: "Alegreya", serif;
-    }
-
     h1, h2, h3, h4, h5, h6 {
       color: #bb0e0e;
       font-weight: normal;
@@ -255,6 +262,8 @@
     }
 
     /* Footnotes */
+
+    /* LATER Justify text? */
 
     sup.footnote-reference {
       margin: 0 0.1em;
@@ -294,6 +303,8 @@
 
     /* LATER Consider using § or # by editing the template */
     /* https://www.getzola.org/documentation/content/linking/#anchor-insertion */
+
+    /* LATER Highlight active anchor after visiting the page through one? Look how matklad does it. */
 
     h2, h3, h4, h5, h6 {
       /* Not sure why but the pseudo-element doesn't work without this */
