@@ -5,9 +5,15 @@
 
 <!-- LATER 404 to a draft should attempt to open post and/or display an explanation. -->
 
-<!-- TODO Social preview for main page and posts (Discord, reddit, ...) -->
-
 <!-- GH/D icons -->
+
+<!-- LATER Prev/next post -->
+
+<!--
+  TODO Test on mobile:
+    - Header too wide
+    - Smaller font? Maybe only code blocks?
+-->
 
 <head>
   <meta charset="utf-8">
@@ -16,6 +22,16 @@
   <meta name="keywords" content="martin-t, blog, programming, rust, linux, foss, gamedev">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% block head %}
+  <!-- Useful for testing: https://addons.mozilla.org/en-US/firefox/addon/open-graph-preview-and-debug/ -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://martin-t.github.io/">
+  <meta property="og:site_name" content="martin-t::blog">
+  <meta property="og:title" content="Martin-t's blog">
+  <meta property="og:description" content="Rust, gamedev, Rust gamedev, mostly">
+  <meta property="og:image" content="http://127.0.0.1:1111/resf-black-export-drawing-1200x1200.png">
+  {% endblock %}
 
   <!--
     Yeah, yeah, what a cute title. It's out of necessity, not because i wanted to be funny and original.
