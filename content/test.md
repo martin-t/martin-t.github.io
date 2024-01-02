@@ -1,6 +1,6 @@
 +++
 title = "Hidden test page"
-date = 1337-04-20
+# date = 1337-04-20 Don't include a date or it will appear in the feed.
 +++
 
 This page tests all kinds of combinations of all kinds of stuff. All content below is just filler text.
