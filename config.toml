@@ -8,7 +8,7 @@ description = "Rust, gamedev, Rust gamedev, mostly"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# TODO atom vs rss? test feed works
+# TODO atom vs rss? image? test feed works
 generate_feed = true
 
 # Whether to build a search index to be used later on by a JavaScript library
