@@ -1,9 +1,9 @@
 # The URL the site will be built for
 base_url = "https://martin-t.github.io"
 
-# The site title and description; used in feeds by default. TODO
-#title = ""
-#description = ""
+# The site title and description; used in feeds by default.
+title = "martin-t::blog"
+description = "Rust, gamedev, Rust gamedev, mostly"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
