@@ -8,7 +8,7 @@ title = "Basics for readable websites that most devs don't seem to understand"
   everything here is based on potentially incomplete/incorrect understanding and copious amounts of Stack Overflowing.
 -->
 
-Here's a list of rules how I think websites should by "styled" for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text-heavy content. Unfortunately, however, for some reason most websites fail to meet them and that bothers me enough to write this mildly annoyed post.
+Here's a list of rules how I think websites should by "styled" for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, for some reason most websites fail to meet them and that bothers me enough to write this mildly annoyed post.
 
 With examples.
 
@@ -42,9 +42,13 @@ Another paragraph with a footnote[^3].
 
 [^1]: This is a footnote.
 
-[^2]: This is another footnote, this time somewhat longer. Note that in markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. And just like that we got to test a link and an inline code block. Plus _emphasis_, **bold**, and **_bold emphasis_**.<br/>Note to self: you can use `<br/>` to write multiple paragraphs. This is an essential feature because like half of the reason I made a blog is so I have a place I can rant to my heart's content.
+[^2]: This is another footnote, this time somewhat longer. Note that in zola's markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. Footnotes should support links, inline code blocks, _emphasis_, **bold**,, **_bold emphasis_**, etc. This might be obvious but for example in LaTeX, footnotes don't support code blocks by default.<br/>Pro tip: in markdown you can use `<br/>` to write multiple paragraphs. This is an essential feature for me because like half of the reason I made a blog is so I have a place I can rant to my heart's content.
 
 [^3]: This is a third footnote. All three should be on the side of the text, not at the end, and should not overlap with the heading or table below.
+
+<!-- TODO Accessibility - footnote and backlink should have diff text (https://jkorpela.fi/www/fn.html - The brackets)
+<!-- TODO check for linebreaks between text and link--> -->
+<!-- TODO <a href="." title="test">aaa</a> -->
 
 ## Large tables must not be restricted by the width of the main text content
 
