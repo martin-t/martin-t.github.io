@@ -42,3 +42,11 @@ Run `zola check` on CI, make sure there are no warnings like `Warning: Orphan pa
 <https://giscus.app/>
 
 This has a nice markdown showcase, even if it has bad footnotes: <https://teadrinkingprogrammer.github.io/tranquil-demo/blog/markdown/#1>
+
+## License
+
+Code samples are dual-licensed under [Apache 2.0](LICENSE-APACHE-2.0.txt) or [MIT](LICENSE-MIT.txt) - you can use them pretty much freely.
+
+The code of the website itself (mostly HTML/CSS/JS) is licensed under [AGPL 3.0](LICENSE-AGPL-3.0.txt) - you can use it for your own website but you have to share any modifications.
+
+The text content is all rights reserved - i.e. don't republish my articles and claim they're yours.

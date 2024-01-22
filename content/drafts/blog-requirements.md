@@ -26,8 +26,6 @@ On mobile, allow tapping to expand them instead.
 
 And for the love of <span title="Feel free to substitute with your fairytale creature of choice.">flying spaghetti monster</span>, if you read this and still put footnotes at the bottom for whatever reason, at least make them link back.
 
-<!-- TODO Custom tooltip ^ -->
-
 Some websites and how they do it:
 
 - [stilldrinking.org](http://www.stilldrinking.org/grammar-maquis) ([archive](https://web.archive.org/web/20231025082455/http://www.stilldrinking.org/grammar-maquis)) - Position calculated ahead of time and hardcoded, does not change when editing the HTML. Not idea how to do this in zola / with styles.
@@ -114,7 +112,7 @@ Images that are scaled down should be clickable to open in full size. Yes, you c
 
 The same thing applies to videos. Consider using videos instead of gifs because they have controls by default.[^sorting-algo-gifs]
 
-[^sorting-algo-gifs]: The internet is full of gifs of how various [sorting](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif) algorithms [work](https://upload.wikimedia.org/wikipedia/commons/8/8e/Merge_sort_animation.gif). I am sure they took a lot of work to produce and their value is almost zero because if you miss something you have to wait for the entire thing to loop again. You can't even pause them or slow them down to examine what is actually happening. And yes, these days repeatedly clicking pause/play is the best way you can slow down a [video in the browser with its default controls](https://user-images.githubusercontent.com/4079823/152082630-a705286d-c630-4507-9213-b8a7b106d47e.mp4). All video players should by default allow setting speed and single stepping frames but it seems civilization has not advanced to that stage yet.
+[^sorting-algo-gifs]: The internet is full of gifs of how various [sorting](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif) algorithms [work](https://upload.wikimedia.org/wikipedia/commons/8/8e/Merge_sort_animation.gif). I am sure they took a lot of work to produce and they look really cool but their educational value is almost zero because if you miss something you have to wait for the entire thing to loop again. You can't even pause them or slow them down to examine what is actually happening. And yes, these days repeatedly clicking pause/play is the best way you can slow down a [video in the browser with its default controls](https://user-images.githubusercontent.com/4079823/152082630-a705286d-c630-4507-9213-b8a7b106d47e.mp4). All video players should by default allow setting speed and single stepping frames but it seems civilization has not advanced to that level yet.
 
 ## There should be a list of all posts with just titles and dates
 
@@ -146,7 +144,7 @@ Oh and footnotes on most websites make me wanna do things to other people with m
 
 ## So how do I make my website actually readable? Is there a theme or template I can use or something?
 
-Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I don't plan to make this a reusable theme but the code's available under AGPLv3 and they say imitation is the sincerest form of flattery. <!-- TODO GH link -->
+Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I don't plan to make this a reusable theme but the code's [available](https://github.com/martin-t/martin-t.github.io) under [AGPLv3](https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0) and they say imitation is the sincerest form of flattery.
 
 That being a said, I am not a webdev. I learned most of the HTML/CSS used here in the last few weeks. Take that into account.
 
