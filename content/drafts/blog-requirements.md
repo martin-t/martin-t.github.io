@@ -1,5 +1,5 @@
 +++
-title = "Basics for readable websites that most devs don't seem to understand"
+title = "Basic requirements for readable websites which most devs don't seem to understand for some reason"
 +++
 
 <!--
@@ -8,7 +8,7 @@ title = "Basics for readable websites that most devs don't seem to understand"
   everything here is based on potentially incomplete/incorrect understanding and copious amounts of Stack Overflowing.
 -->
 
-Here's a list of rules how I think websites should by "styled" for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, for some reason most websites fail to meet them and that bothers me enough to write this mildly annoyed post.
+Here's a list of rules how I think websites should by "styled" for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, I have no idea why but most websites fail to meet them and that bothers me enough to write this mildly annoyed post.
 
 With examples.
 
@@ -24,9 +24,9 @@ Having to jump to the bottom breaks the flow of reading, duh. "Footnotes" should
 
 On mobile, allow tapping to expand them instead.
 
-And for the love of flying spaghetti monster, if you read this and still put footnotes at the bottom for whatever reason, at least make them link back.
+And for the love of <span title="Feel free to substitute with your fairytale creature of choice.">flying spaghetti monster</span>, if you read this and still put footnotes at the bottom for whatever reason, at least make them link back.
 
-<!-- TODO Feel free to substitute with your fairytale creature of choice. -->
+<!-- TODO Custom tooltip ^ -->
 
 Some websites and how they do it:
 
@@ -46,10 +46,6 @@ Another paragraph with a footnote[^3].
 
 [^3]: This is a third footnote. All three should be on the side of the text, not at the end, and should not overlap with the heading or table below.
 
-<!-- TODO Accessibility - footnote and backlink should have diff text (https://jkorpela.fi/www/fn.html - The brackets)
-<!-- TODO check for linebreaks between text and link--> -->
-<!-- TODO <a href="." title="test">aaa</a> -->
-
 ## Large tables must not be restricted by the width of the main text content
 
 <div class="table">
@@ -57,8 +53,8 @@ Another paragraph with a footnote[^3].
 <!-- Note the blank line between the div and the table in Markdown. Without it, the raw markdown would be included, not the rendered table. -->
 
 | A wide table | pneumonoultramicroscopicsilicovolcanoconiosis | pseudopseudohypoparathyroidism | antidisestablishmentarianism                        | pseudopseudohypoparathyroidism | electroencephalographically | floccinaucinihilipilification | deinstitutionalization | counterrevolutionaries | uncharacteristically                                       |
-|--------------|-----------------------------------------------|--------------------------------|-----------------------------------------------------|--------------------------------|-----------------------------|-------------------------------|------------------------|------------------------|------------------------------------------------------------|
-| Meaning      | The disease silicosis                         | A hereditary medical disorder  | The political position of opposing disestablishment | You look it up                 |                             | What???                       |                        |                        | Oh look, even a normal person might actually use this one. |
+|-|-|-|-|-|-|-|-|-|-|
+| Meaning | The disease silicosis | A hereditary medical disorder  | The political position of opposing disestablishment | You look it up | Approcahing normal word territory | What??? | | | Oh look, even a normal person might actually use this one. |
 
 </div>
 
@@ -134,9 +130,11 @@ If you want the latest post on your main page in full, that's fine, just offer t
 
 Or provide both if you really must.
 
-Infinite scrolling exists for 2 reasons: mobile users[^phone-buttons] and feeding marginally more dopamine mixed with ads to addicts who would have closed your page if they had to overcome the minuscule inconvenience of clicking a button. It's functionally worse in almost every way when actually looking for something.
+Infinite scrolling exists for 2 reasons: mobile users[^phone-buttons] and feeding marginally more dopamine mixed with ads to addicts who would have closed your page if they had to overcome the minuscule inconvenience of clicking a button. It's functionally worse in almost every way when actually looking for something.[^functionally-worse]
 
 [^phone-buttons]: This is a rant for another day but most people hold a phone so their thumb can reach the middle of the screen, yet most of the controls (not just for pagination) are either at the top or bottom.
+
+[^functionally-worse]: Off the top of my head:<br>1) There's no longer a footer so it's harder to find things like FAQs, contact info, socials, RSS/atom, etc.<br>2) If the request fails, there's often no way to retry.<br>3) You can't "sample" the content at various points (e.g. pages 10, 50, 100, 200) and old content is effectively unreachable.
 
 Have a button that goes to the oldest page. Let people see how everything started, especially if your first content was actually good because you had something to say and only later became filler.
 
@@ -150,7 +148,7 @@ Oh and footnotes on most websites make me wanna do things to other people with m
 
 Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I don't plan to make this a reusable theme but the code's available under AGPLv3 and they say imitation is the sincerest form of flattery. <!-- TODO GH link -->
 
-That being a said, I am not a webdev. I learned most of the HTML/CSS I know in the last few weeks. Take that into account.
+That being a said, I am not a webdev. I learned most of the HTML/CSS used here in the last few weeks. Take that into account.
 
 There's also a [test page](/test) which contains more thorough examples of everything covered here.
 

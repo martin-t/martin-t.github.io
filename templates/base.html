@@ -50,7 +50,8 @@
 
   <link rel="icon" href="/resf-black-export-drawing-100x100.png">
 
-  <link rel="alternate" type="application/atom+xml" title="Atom" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+  {% set atom = get_url(path="atom.xml", trailing_slash=false) %}
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="{{ atom | safe }}">
 
   <!--
     Include the default font as base64 in the main HTML file
@@ -183,7 +184,6 @@
       margin: var(--body-margin);
       background-color: var(--background-light);
       color: #080808;
-      /* font-size: 1.1em; TODO */
     }
     body.serif {
       font-family: serif; /* This ends up as Noto Serif on Kubuntu */
@@ -232,6 +232,9 @@
     ul.posts li {
       font-size: 1.2em;
     }
+    ul.posts li em.date {
+      color: #666;
+    }
     a.drafts-link {
       font-size: 1.2em;
     }
@@ -250,8 +253,30 @@
       font-weight: normal;
     }
 
-    em.date {
+    /* When changing this, make sure it still works with some elements missing.
+    For example some pages don't have a date. */
+    div.page-meta {
+      display: flex;
       color: #666;
+    }
+    div.page-meta span {
+      /* Act as a separator */
+      flex: auto;
+    }
+
+    div.prev-next {
+      display: flex;
+      font-size: 0.8em;
+    }
+    div.prev-next a {
+      flex: 0 0 45%;
+    }
+    div.prev-next a.next {
+      text-align: right;
+    }
+    div.prev-next span {
+      /* Act as a separator */
+      flex: auto;
     }
 
     p {
@@ -262,17 +287,30 @@
       text-align: justify;
     }
 
+    /* TODO Custom tooltips */
+    /* Using the title attribute works but it appears only after waiting a while so the discoverability is bad. */
+
+    div.tooltip-definition {
+      border: 1px solid #666;
+    }
+
     /* Footnotes */
 
     /* LATER Justify text? */
+    /* LATER Accessibility - footnote and backlink should have diff text (https://jkorpela.fi/www/fn.html - The brackets) */
 
     sup.footnote-reference {
       margin: 0 0.1em;
     }
 
-    .footnote-definition p {
-      display: inline;
+    div.footnote-definition {
+      margin-top: 1em;
+      margin-bottom: 1em;
       font-size: 0.8em;
+    }
+
+    div.footnote-definition p {
+      display: inline;
     }
 
     /* Links */
@@ -291,7 +329,7 @@
 
     /* Anchors */
 
-    /* The anchor created by zola is <h2><a/></h2>.
+    /* The anchor created by zola is <h2><a href="..."/></h2>.
     We use float:left and a negative margin on the <a>
     so that headings align with other test and the anchors are to the left.
 
@@ -363,7 +401,7 @@
 
     figure.right {
       float: right;
-      margin-top: 0;
+      margin-top: 1em;
       margin-bottom: 0;
       margin-left: 2em;
       margin-right: 0;

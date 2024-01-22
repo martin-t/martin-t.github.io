@@ -13,13 +13,26 @@
   {{ page.title }}
 </h1>
 
-<p>
-  <em class="date">{{ page.date }}</em>
-  <!-- TODO updated if specified -->
-</p>
+<div class="page-meta">
+  <em>{{ page.date }} {% if page.updated %} (updated {{ page.updated }}) {% endif %}</em>
+  <span></span>
+  <em>{{ page.word_count }} words / {{ page.reading_time }} minutes</em>
+</div>
 
 {% block disclaimer %} {% endblock disclaimer %}
 
 {{ page.content | safe }}
+
+<div class="prev-next">
+  {% if page.higher %}
+  <a href="{{ page.higher.path }}">« {{ page.higher.title }}</a>
+  {% endif %}
+
+  <span></span>
+
+  {% if page.lower %}
+  <a class="next" href="{{ page.lower.path }}">{{ page.lower.title }} »</a>
+  {% endif %}
+</div>
 
 {% endblock content %}
