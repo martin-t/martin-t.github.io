@@ -86,7 +86,7 @@ fn main() {
 }
 ```
 
-Colors - obvious, moving on.
+Colors - <span title="Unless you were traumatized by colored rods as a kid and still haven't processed it 60 years later so you intentionally design a language to be hard to syntax highlight properly.">obvious</span>, moving on.
 
 Code should not be wrapped nor should it overflow. Expand the container past the width of normal text if necessary. Same story as tables. We have widescreen monitors, we put normal text in a column because it's more readable. Code squished into a column is not more readable. Don't squish code into a column.[^wide-code]
 
