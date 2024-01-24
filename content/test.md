@@ -27,6 +27,18 @@ Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero s
 
 Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_elit_**. Donec ~~a diam~~ lectus.
 
+### Heading 3 - links
+
+At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.
+
+This is an [unvisited multiword link](https://example831041059898111108101101116.com).
+
+<!--This should give server not found so at least firefox doesn't add it to history. -->
+
+### Heading 3 - tooltips
+
+It's one of <span title="This one.">these</span> words.
+
 ### Heading 3 - nested list
 
 - Item 1
@@ -42,7 +54,7 @@ Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_elit_**. Donec
 
 #### Heading 4 - more text
 
-Lorem ipsum[^fnb1][^fnb2] [^fnb3] dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fnb4] Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+Lorem ipsum[^fnb1][^fnb2] [^fnb3] dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fnb4] Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. I said it's just filler, why are you reading <span title=":D">this<span>? Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
 
 [^fnb1]: This is footnote 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 
