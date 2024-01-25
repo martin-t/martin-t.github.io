@@ -120,9 +120,15 @@ No or very short descriptions. Offer a way to skim all titles and quickly find t
 
 [^google-ctrl-f]: You could use google with `site:` but Ctrl+F has its charm.
 
-If you want the latest post on your main page in full, that's fine, just offer this list somewhere. There's way too many (wordpress?) blogs where the main page is just one full article after another and you'd have to click through a million pages to find anything or to just scan for topics you like.[^optics-blog]
+If you want the latest post on your main page in full, that's fine, just offer this list _somewhere_. There's way too many (wordpress?) blogs where the main page is just one full article after another and you'd have to click through a million pages to find anything or to just scan for topics you like.[^optics-blog]
 
 [^optics-blog]: Like [this](https://skullsinthestars.com/) one. It has a ton of content, [some of it](https://skullsinthestars.com/2023/12/09/what-is-a-zero-refractive-index-material/) interesting but you can't get a proper feeling for what's there because even [filtered by category](https://skullsinthestars.com/category/optics/), the list of posts has infinite scrolling.
+
+### Pretty please, with sugar on top, make sure posts have dates
+
+...and that they're visible on the post's page. I can't tell you how many times I ran across a review or rant or even a positive post and I had no idea if it reflected the current state or was 10 years out of date.[^julia-shit]
+
+[^julia-shit]: For example, [Julia is shit](https://yuri.is/not-julia) and you could have guessed it by how they handle NaNs but here you have explicit, specific, undisputable proof that the devs just don't care about correctness. And a systemic issue like this is unlikely to improve any time soon but it would be nice to know at a glance this is a recent article, not something from Julia's early days (especially given this kind and density of issues isn't normal in a supposedly mature project). And because I compulsively have to point out irony, notice how the author uses dates (years) to drive home that this is a long term issue while he provides no date on his own article.
 
 ## Use page numbers instead of infinite scrolling
 
@@ -138,7 +144,7 @@ Have a button that goes to the oldest page. Let people see how everything starte
 
 ## Wait, there's a story behind all this, right?
 
-Yes, what prompted this was ~~reading~~ trying to read a large table in a GitHub (GitLab?) readme and having to scroll left and right all the time even though the table would have fit on my screen perfectly if it wasn't unnecessarily restricted by the text width. Sadly I can't find the repo anymore so you can't properly appreciate the pain and suffering i had to go through.
+Yes, what prompted this was ~~reading~~ trying to read a large table in a GitHub (GitLab?) readme and having to scroll left and right all the time even though the table would have fit on my screen perfectly if it wasn't unnecessarily restricted by the text width. Sadly I can't find the repo anymore so you can't properly appreciate the pain and suffering I had to go through.
 
 Oh and footnotes on most websites make me wanna do things to other people with my foot, the nature of which shall be left to the reader's imagination.
 
