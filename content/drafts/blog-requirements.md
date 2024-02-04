@@ -36,11 +36,11 @@ And [here's](https://gwern.net/sidenote) a guy writing thousands of words on thi
 
 Footnote definitions[^1][^2] should be next to the footnote references, not at the end of the paragraph or even lower. Note that Markdown footnote definitions in HTML are generated at the location where they appear in the Markdown source so you might have to move them up somehow.
 
-Another paragraph with a footnote[^3].
-
 [^1]: This is a footnote.
 
 [^2]: This is another footnote, this time somewhat longer. Note that in zola's markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. Footnotes should support links, inline code blocks, _emphasis_, **bold**,, **_bold emphasis_**, etc. This might be obvious but for example in LaTeX, footnotes don't support code blocks by default.<br/>Pro tip: in markdown you can use `<br/>` to write multiple paragraphs. This is an essential feature for me because like half of the reason I made a blog is so I have a place I can rant to my heart's content.
+
+Another paragraph with a footnote[^3].
 
 [^3]: This is a third footnote. All three should be on the side of the text, not at the end, and should not overlap with the heading or table below.
 
