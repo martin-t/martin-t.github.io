@@ -161,7 +161,10 @@
 
     :root {
       --body-margin: 1rem;
-      --content-width: 45rem;
+      --width-content: 45rem;
+      --width-sides: calc(100% - var(--width-content));
+      --width-side: calc(var(--width-sides) / 2);
+      --width-sidenotes: 18rem;
       --color-light-background: #fafaf8;
       --color-light-background-code: #e8e8e5;
       --color-light-foreground: #080808;
@@ -181,7 +184,7 @@
     Instead, restrict main's children, then make exceptions.
     */
     header, main > *, footer {
-      max-width: var(--content-width);
+      max-width: var(--width-content);
       margin-left: auto;
       margin-right: auto;
     }
@@ -304,14 +307,19 @@
 
     /* Footnotes */
 
-    /* LATER Justify text? */
     /* LATER Accessibility - footnote and backlink should have diff text (https://jkorpela.fi/www/fn.html - The brackets) */
+    /* LATER Alternate left and right? */
 
     sup.footnote-reference {
       margin: 0 0.1em;
     }
 
     div.footnote-definition {
+      float: right;
+      clear: right;
+      width: var(--width-sidenotes);
+      margin-left: 2em;
+      margin-right: calc(var(--width-side) - var(--width-sidenotes) - 2em);
       margin-top: 1em;
       margin-bottom: 1em;
       font-size: 0.8em;
@@ -445,7 +453,7 @@
 
     pre {
       padding: 0.5em;
-      min-width: var(--content-width);
+      min-width: var(--width-content);
       max-width: min-content;
       margin-left: auto;
       margin-right: auto;

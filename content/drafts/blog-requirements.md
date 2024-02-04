@@ -88,7 +88,7 @@ Colors - <span title="Unless you were traumatized by colored rods as a kid and s
 
 Code should not be wrapped nor should it overflow. Expand the container past the width of normal text if necessary. Same story as tables. We have widescreen monitors, we put normal text in a column because it's more readable. Code squished into a column is not more readable. Don't squish code into a column.[^wide-code]
 
-[^wide-code]: Yes, long lines often indicate bad code. Remember this the next time you have to scroll right on a highly upvoted StackOverflow answer because its code blocks are only wide enough for 80 chars.<br/>Anyway: 1) As should be obvious if you got this far, sometimes things are more readable wide. Things like tables, because, yes, code sometimes contains data that is basically a table. 2) Not all code blocks are code, they can be program output, logs, ASCII art, etc. Also, whenever someone tells you a rule of thumb must be always followed, you can be certain they're the kind of person who can't handle nuance and their advice is worthless. That advice doesn't apply to the advice itself, the previous sentence is always absolutely 100% true.
+[^wide-code]: Yes, long lines often indicate bad code. Remember this the next time you have to scroll right on a highly upvoted StackOverflow answer. Its code blocks are only 80 chars wide.<br/>Anyway: 1) As should be obvious if you got this far, sometimes things are more readable wide. Things like tables, because, yes, code sometimes contains data that is basically a table. 2) Not all code blocks are code, they can be program output, logs, ASCII art, etc. Also, whenever someone tells you a rule of thumb must be always followed, you can be certain they're the kind of person who can't handle nuance and their advice is worthless. This advice doesn't apply to the advice itself, the previous sentence is always absolutely 100% true.
 
 Only use wrapping / horizontal scrolling if the code block is too wide for the whole screen. Which hopefully never happens unless the content is really _special_.
 
@@ -118,7 +118,7 @@ The same thing applies to videos. Consider using videos instead of gifs because 
 
 No or very short descriptions. Offer a way to skim all titles and quickly find the one people remember reading but don't remember the exact title.[^google-ctrl-f]
 
-[^google-ctrl-f]: You could use google with `site:` but Ctrl+F has its charm.
+[^google-ctrl-f]: You could use google/DDG with `site:` but Ctrl+F has its charm. Specifically, it's instant.
 
 If you want the latest post on your main page in full, that's fine, just offer this list _somewhere_. There's way too many (wordpress?) blogs where the main page is just one full article after another and you'd have to click through a million pages to find anything or to just scan for topics you like.[^optics-blog]
 
