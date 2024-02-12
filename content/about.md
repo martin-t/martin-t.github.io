@@ -5,11 +5,11 @@ title = "For stalkers"
 <div>
   <figure class="right">
     <img src="/resf-black-export-drawing-512x512.png" alt="RESF" width="256" height="auto"/>
-    <figcaption>This is me, this is what I look like</figcaption>
+    <figcaption>This is me, this is what I look like.</figcaption>
   </figure>
 </div>
 
-Programmer, archer, aspiring rationalist, master procrastinator, wannabe gamedev.
+Programmer, archer, aspiring rationalist, wannabe gamedev, master procrastinator.
 
 <!-- more -->
 

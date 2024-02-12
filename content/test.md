@@ -23,21 +23,23 @@ Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero s
 
 [^fna4]: This is footnote 4.
 
-### Heading 3 - bold, italic, 2x bold italic, strikethrough
+### Heading 3 - fancy text
 
-Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_elit_**. Donec ~~a diam~~ lectus.
+Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.[^fn-fancy]
+
+[^fn-fancy]: Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.
 
 ### Heading 3 - links
 
-At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.
+At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).[^fn-link]
 
-This is an [unvisited multiword link](https://example831041059898111108101101116.com).
+[^fn-link]: At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).
 
-<!--This should give server not found so at least firefox doesn't add it to history. -->
+<!-- The unvisited link should give server not found so the browser doesn't add it to history and it remains unvisited. At least until someone registers the domain just to break my test page. -->
 
 ### Heading 3 - tooltips
 
-It's one of <span title="This one.">these</span> words.
+It's one of <span title="This one.">these</span> words. And <span style="text-decoration: underline dotted;" title="Yup, this.">this</span> one.
 
 ### Heading 3 - nested list
 
@@ -68,13 +70,28 @@ Lorem ipsum[^fnb1][^fnb2] [^fnb3] dolor sit amet, consectetur adipiscing elit. D
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 
+<!--
+TODO: Manual paragraphs that can have blank lines and other HTML inside
+so I can put footnotes inline with text and not have unreadable source code.
+-->
+
+<p>
+
+Manual paragraph.
+
+Second sentence. Should be on the same line.
+
+</p>
+
 ###### Heading 6 - even even more text
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 
 ## Heading 2 - code
 
-Fits in the column
+Fits in the column[^footnote-narrow-code]
+
+[^footnote-narrow-code]: This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
 
 ```rust
 fn main() {
@@ -106,8 +123,11 @@ Very long inline code block `// This comment turns this line into a very, very l
 
 ## Heading 2 - table
 
-Fits in the column
+Fits in the column[^footnote-narrow-table]
 
+[^footnote-narrow-table]: This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+
+<!-- LATER table-narrow without clear:both, with scrollbar as fallback in case we're wrong, same for code and images -->
 <div class="table">
 
 | Column 1 | Column 2 | Column 3 |
@@ -122,9 +142,9 @@ Overflows the column but fits on the screen[^footnote-wide-table]
 
 <div class="table">
 
-| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 | Column 10 | Column 11 | Column 12 | Column 13 | Column 14 | Column 15 | Column 16 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Cell 1   | Cell 2   | Cell 3   | Cell 4   | Cell 5   | Cell 6   | Cell 7   | Cell 8   | Cell 9   | Cell 10  | Cell 11  | Cell 12  | Cell 13  | Cell 14  | Cell 15  | Cell 16  |
+| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 | Column 10 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| Cell 1   | Cell 2   | Cell 3   | Cell 4   | Cell 5   | Cell 6   | Cell 7   | Cell 8   | Cell 9   | Cell 10  |
 
 </div>
 
@@ -140,7 +160,8 @@ Overflows the screen
 
 Taller than screen
 
-<div class="table">
+<!-- LATER Restore table div? -->
+<!-- <div class="table"> -->
 
 | Column 1 | Column 2 | Column 3 |
 | -------- | -------- | -------- |
@@ -195,11 +216,13 @@ Taller than screen
 | Cell 145 | Cell 146 | Cell 147 |
 | Cell 148 | Cell 149 | Cell 150 |
 
-</div>
+<!-- </div> -->
 
 ## Heading 2 - image
 
-Fits in the column
+Fits in the column[^footnote-narrow-image]
+
+[^footnote-narrow-image]: This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
 
 ![Image](/stripes-400x32.png)
 

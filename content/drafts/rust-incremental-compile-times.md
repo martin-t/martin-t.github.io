@@ -58,6 +58,10 @@ Expected speedup: TODO
 
 ### Use nightly, lld and -Zshare-generics
 
+TODO maneion nightly is not evil, bad, special or whatever, just a slightly newer version which also accepts more config options
+
+TODO also won't make your project nightly only - people can still compile on stable, just without the speedups
+
 Put this in `.cargo/config.toml` in your project:
 
 ```toml
@@ -221,3 +225,9 @@ tip: move proc macro calls to a subcrate so it doesn't get reexpanded every time
 https://old.reddit.com/r/rust/comments/1868mne/investigating_crazy_compile_times/
 
 https://briankung.dev/2023/07/16/rust-notes/ - The build times - he's talking about full
+
+mention changing rustflags causes a full recompile
+
+Is this worth it? On a random day I spent 5 hours working on my game, 7 minutes of that was spent compiling. Without optimizations i would have spent TODO staring at the compiler's progress bar. If it takes you TODO to read this article and implement the changes in your project, it'll pay off in a single day.
+
+TODO make all my readmes/configs/tomls point to this instead

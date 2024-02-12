@@ -8,41 +8,58 @@ title = "Basic requirements for readable websites which most devs don't seem to 
   everything here is based on potentially incomplete/incorrect understanding and copious amounts of Stack Overflowing.
 -->
 
-Here's a list of rules how I think websites should by "styled" for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, I have no idea why but most websites fail to meet them and that bothers me enough to write this mildly annoyed post.
+Here's a list of rules how I think websites should by structured and styled for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, I have no idea why but most websites fail to meet them and that bothers me enough to write this mildly annoyed post.[^preaching][^why]
 
 With examples.
 
 <!-- more -->
 
-You'll immediately notice that while I am preaching, my own blog doesn't meet all of them (at the moment). That's because I couldn't find a single Zola theme which ~~looked at least barely acceptable~~ satisfied them. So I guess I am now learning enough HTML/CSS to do it myself ... or at least discover on my own why so few websites do things right, understand why it's literally impossible to put pixels on screen the way I want, and rekindle my hatred for webdev.
+[^preaching]: You'll immediately notice that while I am preaching, my own blog doesn't meet all of them (at the moment). That's because I couldn't find a single Zola theme which ~~looked at least barely acceptable~~ satisfied them. So I guess I am now learning enough HTML/CSS to do it myself ... or at least discover on my own why so few websites do things right, understand why it's literally impossible to put pixels on screen the way I want, and rekindle my hatred for webdev.
+
+[^why]: Two months of learning HTML/CSS later: OK, I am beginning to have an idea why...
 
 Note that everything here is my personal opinion but feel free to consider it fact and absolute truth. I have no formal education in design... but these days that should give me _more_ authority when it comes to readability and usability.
 
-## Footnotes must appear on the side
+## Use sidenotes instead of footnotes
 
 Having to jump to the bottom breaks the flow of reading, duh. "Footnotes" should really be sidenotes so people can glance at them while reading the main text. In fact, peripheral vision lets them know if it's a 2 word throwaway joke or 2 paragraphs of extra explanation without even thinking about it.
 
-On mobile, allow tapping to expand them instead.
+On mobile, allow tapping to expand them instead or include them in a different font right under the paragraph they refer to.
 
-And for the love of <span title="Feel free to substitute with your fairytale creature of choice.">flying spaghetti monster</span>, if you read this and still put footnotes at the bottom for whatever reason, at least make them link back.
+And for the love of <span title="Feel free to substitute with your fairytale creature of choice.">flying spaghetti monster</span>, if you read this and still use footnotes at the bottom for whatever reason, at least make them link back.
 
-Some websites and how they do it:
+<!-- Some websites and how they do it:
 
-- [stilldrinking.org](http://www.stilldrinking.org/grammar-maquis) ([archive](https://web.archive.org/web/20231025082455/http://www.stilldrinking.org/grammar-maquis)) - Position calculated ahead of time and hardcoded, does not change when editing the HTML. Not idea how to do this in zola / with styles.
+- [stilldrinking.org](http://www.stilldrinking.org/grammar-maquis) ([archive](https://web.archive.org/web/20231025082455/http://www.stilldrinking.org/grammar-maquis)) - Position calculated by JS, does not change when editing the HTML.
 - [verdagon.dev](https://verdagon.dev/blog/generational-references) ([archive](https://web.archive.org/web/20231013010305/https://verdagon.dev/blog/generational-references)) - Seems to use some layout trick, automatically adjusts based on text length but the sidenotes can end up overlapping in some cases.
-- [predr.ag](https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/) ([archive](https://web.archive.org/web/20231015013845/https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/)) - Sidenotes are part of the paragraph in HTML and positioned to the side using CSS. They never overlap with each other but sometimes do with headings.
+- [predr.ag](https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/) ([archive](https://web.archive.org/web/20231015013845/https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/)) - Sidenotes are part of the paragraph in HTML and positioned to the side using CSS. They never overlap with each other but sometimes do with headings. -->
 
-And [here's](https://gwern.net/sidenote) a guy writing thousands of words on this basic topic.
+[Here's](https://gwern.net/sidenote) a guy writing thousands of words on this basic topic.
 
-Footnote definitions[^1][^2] should be next to the footnote references, not at the end of the paragraph or even lower. Note that Markdown footnote definitions in HTML are generated at the location where they appear in the Markdown source so you might have to move them up somehow.
+<!-- In a proper implementation. sidenote definitions[^1][^2] should be next to the sidenote references, not at the end of the paragraph or even lower. Note that Markdown footnote definitions in HTML are generated at the location where they appear in the Markdown source so you might have to move them up somehow.
 
 [^1]: This is a footnote.
 
-[^2]: This is another footnote, this time somewhat longer. Note that in zola's markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. Footnotes should support links, inline code blocks, _emphasis_, **bold**,, **_bold emphasis_**, etc. This might be obvious but for example in LaTeX, footnotes don't support code blocks by default.<br/>Pro tip: in markdown you can use `<br/>` to write multiple paragraphs. This is an essential feature for me because like half of the reason I made a blog is so I have a place I can rant to my heart's content.
+[^2]: This is another footnote, this time somewhat longer. Note that in zola's markdown, you have to leave a blank line between footnote definitions as per [this issue](https://github.com/getzola/zola/issues/585) because of `pulldown-cmark`. Footnotes should support links, inline code blocks, _emphasis_, **bold**,, **_bold emphasis_**, etc. This might be obvious but for example in LaTeX, footnotes don't support code blocks by default.<br>Pro tip: in markdown you can use `<br>` to write multiple paragraphs. This is an essential feature for me because like half of the reason I made a blog is so I have a place I can rant to my heart's content.
 
 Another paragraph with a footnote[^3].
 
-[^3]: This is a third footnote. All three should be on the side of the text, not at the end, and should not overlap with the heading or table below.
+[^3]: This is a third footnote. All three should be on the side of the text, not at the end, and should not overlap with the heading or table below. -->
+
+So how to do it? The TL;DR of Gwern's article is to use Tufte-CSS, unless you have special needs. I think it's a good start, unfortunately:
+
+- You can't use markdown footnotes. They get rendered below the paragraph and there's no way to place them at the right height next to the reference. You have to write sidenotes manually as raw HTML.
+- Some of the other requirements here, like wide tables, _are_ fairly special. As I said, they should be basic stuff but CSS is so bad even people who care about readability don't usually bother with them. And because most people don't know what they want unless they see it somewhere else, very few even want them. And, going full circle, this means there's nobody putting pressure on CSS to evolve and get a proper layout system.[^css-layout][^css-heading]
+
+[^css-layout]: What do I mean? Basic stuff like raise one element to height of another. Or a way to apply `clear: right` conditionally based on the element's width. Or a way to make `clear: right` only apply to elements of one class. Try to have a sidenote floated all the way to the website's margin and an image floated to the side of the text column. Everything works perfectly ~~unless~~ until, by chance, they end up at the same height, then it silently breaks.
+
+[^css-heading]: **Or**, like, wouldn't it be nice to get rid of the gap between the heading and the table by moving the heading down a bit when the first paragraph has to clear an overly long sidenote?
+
+If you want an in-depth explanation how to implement these suggestions in CSS, there will be a separate post about it. This one mostly just complains about the current state and tells you what to do instead, not how.
+
+<!-- LATER These two sidenotes first left, then right -->
+
+<!-- LATER Move commented stuff elsewhere? -->
 
 ## Large tables must not be restricted by the width of the main text content
 
@@ -50,9 +67,9 @@ Another paragraph with a footnote[^3].
 
 <!-- Note the blank line between the div and the table in Markdown. Without it, the raw markdown would be included, not the rendered table. -->
 
-| A wide table | pneumonoultramicroscopicsilicovolcanoconiosis | pseudopseudohypoparathyroidism | antidisestablishmentarianism                        | pseudopseudohypoparathyroidism | electroencephalographically | floccinaucinihilipilification | deinstitutionalization | counterrevolutionaries | uncharacteristically                                       |
+| A wide table | Pneumonoultramicroscopicsilicovolcanoconiosis | Pseudopseudohypoparathyroidism | Antidisestablishmentarianism | Pseudopseudohypoparathyroidism | Electroencephalographically | Floccinaucinihilipilification | Deinstitutionalization | Counterrevolutionaries | Uncharacteristically |
 |-|-|-|-|-|-|-|-|-|-|
-| Meaning | The disease silicosis | A hereditary medical disorder  | The political position of opposing disestablishment | You look it up | Approcahing normal word territory | What??? | | | Oh look, even a normal person might actually use this one. |
+| Meaning | The disease silicosis | A hereditary medical disorder  | The political position of opposing disestablishment | You look it up | Approcahing normal word territory | What??? | ... | | Oh look, even a normal person might actually use this one. |
 
 </div>
 
@@ -66,11 +83,13 @@ So here's the rules for maximum readability:
 - If the table needs to be wider than the monitor, then the horizontal scrollbar should only scroll the table, not the whole page.
 - Tables are used to convey information in a clear and organized manner, information density matters. A table that looks "pretty" at the cost of making you scroll defeats that purpose. Don't add tons of unnecessary whitespace.[^table-whitespace]
 
-[^table-whitespace]: This is not just about websites. Compare screenshots of common Windows and Linux tools. WinDirStat vs QDirStat, ProcessExplorer vs any linux system monitor, OlldDbg/x64dbg vs edb. As much as I prefer linux, I always felt its GUI tools were clumsy and inefficient. Then I tried Windows again and realized its tools consistently fit more information on screen because their Linux counterparts have slightly larger fonts, larger icons, thicker borders and put a shitton of unnecessary whitespace around everything.<br/>Not to mention ProcessExplorer doesn't even have a proper alternative. Ever had random CPU usage spikes? On Windows you keep PE open and when it happens you mouse over the graph to see which process caused it. Linux doesn't have a single tool that can do that. Some idiot told me Linux is still better because I can _just_ write a script. No. Just no.
+[^table-whitespace]: This is not just about websites. Compare screenshots of common Windows and Linux tools. WinDirStat vs QDirStat, ProcessExplorer vs any linux system monitor, OlldDbg/x64dbg vs edb. As much as I prefer linux, I always felt its GUI tools were clumsy and inefficient. Then I tried Windows again and realized its tools consistently fit more information on screen because their Linux counterparts have slightly larger fonts, larger icons, thicker borders and put a shitton of unnecessary whitespace around everything.<br>Not to mention ProcessExplorer doesn't even have a proper alternative. Ever had random CPU usage spikes? On Windows you keep PE open and when it happens you mouse over the graph to see which process caused it. Linux doesn't have a single tool that can do that. Some idiot told me Linux is still better because I can _just_ write a script. No. Just no.
 
-Even Wikipeia gets this wrong. The [desktop version](https://en.wikipedia.org/wiki/Comparison_of_operating_system_kernels) doesn't squish tables but if they're too wide, they still start in the middle of the screen instead of more to the left. Yeah, the table of contents is in the way but it can be closed. It's funny, they bothered implementing a way to close it but it's completely useless because it doesn't make the newly empty space usable.[^why-calgo-culting]
+Even Wikipedia gets this wrong.
 
-[^why-calgo-culting]: It's a prime example of cargo culting. The "designers" just repeated what other designers do without every actually thinking about why. I wouldn't be surprised if some people went their entire lives without ever thinking about why they do anything. Don't be like them.
+The [desktop version](https://en.wikipedia.org/wiki/Comparison_of_operating_system_kernels) doesn't squish tables but if they're too wide, they still start in the middle of the screen instead of more to the left. Yeah, the table of contents is in the way but it can be closed. It's funny, they bothered implementing a way to close it but it's completely useless because it doesn't make the newly empty space usable.[^why-calgo-culting]
+
+[^why-calgo-culting]: A prime example of cargo culting. The "designers" just repeated what other designers do without ever actually thinking about why. I wouldn't be surprised if some people went their entire lives without ever thinking about why they do anything. Don't be like them.
 
 The [mobile version](https://en.m.wikipedia.org/wiki/Comparison_of_operating_system_kernels) is basically the same on a wide screen but when you make the window sufficiently narrow, it changes behavior so that everything is as wide as the screen and each table gets its own scrollbar. Of course that doesn't help you because to get this behavior you need to make the window uselessly narrow in the first place.
 
@@ -88,13 +107,15 @@ Colors - <span title="Unless you were traumatized by colored rods as a kid and s
 
 Code should not be wrapped nor should it overflow. Expand the container past the width of normal text if necessary. Same story as tables. We have widescreen monitors, we put normal text in a column because it's more readable. Code squished into a column is not more readable. Don't squish code into a column.[^wide-code]
 
-[^wide-code]: Yes, long lines often indicate bad code. Remember this the next time you have to scroll right on a highly upvoted StackOverflow answer. Its code blocks are only 80 chars wide.<br/>Anyway: 1) As should be obvious if you got this far, sometimes things are more readable wide. Things like tables, because, yes, code sometimes contains data that is basically a table. 2) Not all code blocks are code, they can be program output, logs, ASCII art, etc. Also, whenever someone tells you a rule of thumb must be always followed, you can be certain they're the kind of person who can't handle nuance and their advice is worthless. This advice doesn't apply to the advice itself, the previous sentence is always absolutely 100% true.
+[^wide-code]: Yes, long lines often indicate bad code. Remember this the next time you have to scroll right on a highly upvoted StackOverflow answer. Its code blocks are only 80 chars wide.<br>Anyway:<br>1) As should be obvious if you got this far, sometimes things are more readable wide. Things like large arrays formatted as tables, because, yes, code sometimes contains data.<br>2) Not all code blocks are code, they can be program output, logs, ASCII art, etc.<br>Also, whenever someone tells you a rule of thumb must be always followed, you can be certain they're the kind of person who can't handle nuance and their advice is worthless. This advice doesn't apply to the advice itself, the previous sentence is always absolutely 100% true.
 
 Only use wrapping / horizontal scrolling if the code block is too wide for the whole screen. Which hopefully never happens unless the content is really _special_.
 
 And provide a copy button where the "Copied" message is _not_ animated. Seriously, animations exist to make slow things still feel smooth. They lie to the user to make them less annoyed. Copying is instant, the feedback should be instant. BTW, do you wonder why it needs feedback at all? Because people are so used to software being broken they won't trust the button alone.[^count-clicks]
 
 [^count-clicks]: This would be an interesting experiment: don't give feedback to some users, count how many of them click multiple times. <!-- LATER -->
+
+<!-- TODO Screenshot of SO on phone (in Pictures) -->
 
 ## Headings must be linkable
 

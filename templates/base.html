@@ -166,9 +166,9 @@
       --width-side: calc(var(--width-sides) / 2);
       --width-sidenotes: 18rem;
       --color-light-background: #fafaf8;
-      --color-light-background-code: #e8e8e5;
+      --color-light-background-code: #dddddb;
       --color-light-foreground: #080808;
-      --color-light-gray: #666;
+      --color-light-gray: #666666;
       --color-light-heading: #bb0e0e;
       --color-light-link-unvisited: var(--color-light-heading);
       --color-light-link-visited: var(--color-light-foreground);
@@ -191,6 +191,7 @@
 
     body {
       margin: var(--body-margin);
+      margin-bottom: 5rem;
       background-color: var(--color-light-background);
       color: var(--color-light-foreground);
       /* font-size: 1.2em; LATER Try with width 50rem, make configurable */
@@ -229,9 +230,11 @@
     }
 
     #styles {
+      z-index: 10;
       position: fixed;
       top: 2em;
       right: 0;
+      padding: 0.5em;
       margin: 1em;
       /* LATER z-index to be above images */
       background-color: var(--color-light-background);
@@ -248,6 +251,8 @@
     a.drafts-link {
       font-size: 1.2em;
     }
+
+    /* TODO Reorder? Headers+anchors, text content, links, sidenotes? */
 
     /* Text content */
 
@@ -308,35 +313,135 @@
     /* Footnotes / sidenotes */
 
     /* LATER Accessibility - footnote and backlink should have diff text (https://jkorpela.fi/www/fn.html - The brackets) */
-    /* LATER Alternate left and right? */
+    /* TODO Manual sidenotes (keep code for MD footnotes as backup?) */
+    /* TODO Fix heading anchors - position everything using absolute x positions? Parent relative, child absolute? */
+
+    /*
+    Notes (maybe future article?):
+    - Requirements:
+      - Put notes on the side at the same height as the reference.
+      - Must not overlap with each other or other content,
+        including content wider than the main text column.
+      - On mobile, either hide by default and expand on click
+        or show them below the paragraph.
+        - Make it clear that clicking opens a popup
+          so users don't avoid clicking it because they expect to be taken elsewhere.
+          Maybe dashed underline?
+      - Must work without JS,
+        though I'd be OK with some JS-only extra progressive enhancement,
+        if the other requirements were satisfied without it.
+      - Optionally highlight both the footnote reference and content
+        when one of them is hovered so it's easier to match them
+        on sidenote-heavy pages.
+
+    - Vertical positioning:
+      - Markdown footnotes are a separate paragraph (in a div),
+        there's no way to recover the original height information.
+      - Therefore footnotes have to be inside the paragraph's element - written manually in HTML.
+      - Inline elements and some block elements such as <p> can't contain block elements,
+        otherwise, they get automatically closed.
+        Therefore, sidenotes have to use inline elements only.
+
+    - Horizontal positioning:
+      - Most approaches use a combination of float and a negative margin to move the note to the side.
+      - We have no container element so a negative margin is useless.
+      - The trick is to use `calc` with the width of the side areas
+        and push the footnote away from the screen edge instead of the main content.
+      - (LATER Blog post should explain using an image - compare Tufte-likes and this.)
+
+    - Gwern has a very comprehensive overview of existing implementations - https://gwern.net/sidenote. Extra info:
+      - Robert Nystrom's sidenotes - e.g. https://gameprogrammingpatterns.com/flyweight.html
+        - A nice example of progressive JS enhancement with understandable code.
+        - References/notes aren't numbered.
+        - Uses <aside> _below_ the paragraph it refers to.
+        - CSS moves it to the right side only. (No way to position is vertically properly using just CSS.)
+        - JS moves it to the right height
+        - Doesn't handle overlapping.
+          Presumably the author pays attention to position them far enough apart manually.
+        - You can test this without JS by disabling JS on the page and reloading:
+          - Firefox - F12 -> Debugger -> Gear icon -> Disable JavaScript. (include a screenshot)
+          - Chrome - https://stackoverflow.com/questions/13405383/how-to-disable-javascript-in-chrome-developer-tools.
+      - Tufte CSS - https://github.com/edwardtufte/tufte-css
+        - Explanation here: https://edwardtufte.github.io/tufte-css/
+        - Another explanation here: http://32bitkid.github.io/tufte-css/
+          - This is an older version but it showcases more elements such as tables and code blocks.
+      - https://www.kooslooijesteijn.net/blog/sidenotes-without-js
+        - Adds "(Sidenote: ...)" only visible without CSS (e.g. screen readers).
+        - Uses a trick with hidden checkboxes, not sure why.
+    - Other impls:
+      - https://scripter.co/sidenotes-using-only-css/
+        - Written after Gwern's article, similar to Tufte, doesn't contain any significant improvements.
+        - Uses inline elements, positions them using `float: left` and moves them up a bit for no reason.
+        - Generates numbers using a CSS counter.
+    */
 
     sup.footnote-reference {
       margin: 0 0.1em;
+      color: var(--color-light-heading);
     }
-
-    div.footnote-definition {
+    sup.footnote-reference a {
+      text-decoration: none;
+    }
+    div:nth-child(odd of .footnote-definition) {
       float: right;
       clear: right;
       width: var(--width-sidenotes);
       margin-left: 2em;
       margin-right: calc(var(--width-side) - var(--width-sidenotes) - 2em);
-      margin-top: 1em;
+    }
+    div:nth-child(even of .footnote-definition) {
+      float: left;
+      clear: left;
+      width: var(--width-sidenotes);
+      margin-right: 2em;
+      margin-left: calc(var(--width-side) - var(--width-sidenotes) - 2em);
+      /*
+      It would be nice to move short sidenotes a bit to the right
+      so they're right next to the main text without a large gap
+      but there seems to be no way to access the element's own width in CSS.
+      LATER: Align sidenotes using JS?
+      */
+    }
+
+    /* This won't work, the margins overlap so 2 sidenotes are never at the same height. */
+    /* div:nth-child(odd of .footnote-definition) {
+      float: left;
+      clear: left;
+      max-width: var(--width-sidenotes);
+      margin-left: calc(var(--width-content) + var(--width-side) + 2em);
+    }
+    div:nth-child(even of .footnote-definition) {
+      float: right;
+      clear: right;
+      max-width: var(--width-sidenotes);
+      margin-right: calc(var(--width-content) + var(--width-side) + 2em);
+    } */
+
+    div.footnote-definition {
+      margin-top: 0em; /* Margins don't seem to collapse on floated elements. */
       margin-bottom: 1em;
 
       /*
       Markdown footnotes are lower than the paragraph they refer to.
       Push the sidenotes up a little.
       There's no way to find out the correct height so this is a best guess.
+      Also note that this doesn't affect the layout of elements below it,
+      they'll still act as if the footnote was occupying the original space.
       */
-      position: relative;
-      top: -5em;
+      /* position: relative;
+      top: -5em; */
 
       font-size: 0.8em;
+      text-align: justify;
+    }
+    div.footnote-definition sup {
+      color: var(--color-light-heading);
+    }
+    div.footnote-definition p {
+      display: inline; /* On the same line as the number */
     }
 
-    div.footnote-definition p {
-      display: inline;
-    }
+    /* LATER Use JS to remove clear:both from tables/code/images which are narrower than main content. */
 
     /* Links */
 
@@ -414,6 +519,7 @@
     Note markdown images end up wrapped in a <p>.
     */
     main > p > img, main > p > video {
+      clear: both;
       display: block;
       max-width: calc(100vw - 2 * var(--body-margin));
 
@@ -425,6 +531,7 @@
     }
 
     figure.right {
+      /* LATER: Using float here interacts with sidenotes, find a better way. */
       float: right;
       margin-top: 1em;
       margin-bottom: 0;
@@ -440,20 +547,51 @@
 
     /* Tables */
 
-    /* All tables have to be _manually_ wrapped in in this div,
+    /* All tables have to be _manually_ wrapped in this div,
     zola generates just a naked table element
     and there doesn't seem to be a way to make it scrollable with just CSS. */
     div.table {
+      clear: both;
+      /* LATER Align to center in a way that doesn't require clearing floating sidenotes if the table is narrow. */
+      /* margin-left: unset;
+      margin-right: unset;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%); */
+
+      position: relative;
+
       width: fit-content;
       max-width: 100%;
-      overflow-x: auto;
+      overflow-x: auto; /* LATER This breaks sticky headers for some reason. */
+      /* LATER Try https://stackoverflow.com/questions/74430552/table-body-not-as-wide-as-table/74490075#74490075 */
+      /* Or https://uxdesign.cc/position-stuck-96c9f55d9526 */
     }
     table {
+      /* Required for sticky headers: https://css-tricks.com/position-sticky-and-table-headers/ */
+      position: relative;
+
       border-collapse: collapse;
+      border-bottom: 2px solid;
     }
     th, td {
-      padding: 0.3em;
-      border: 1px solid;
+      text-align: center;
+    }
+    th {
+      position: sticky;
+      top: -1px; /* 0 creates a gap */
+      background-color: var(--color-light-background);
+
+      /* Borders don't work with sticky headers so we use inset shadows instead. */
+      box-shadow: inset 0 2px 0 #000000, inset 0 -1px 0 #000000;
+      /* Same padding as a normal cell but +3px to account for the inset shadow. */
+      padding: calc(0.3em + 3px) 1em 0.3em 1em;
+    }
+    td {
+      padding: 0.3em 1em;
+    }
+    th:first-child, td:first-child {
+      text-align: left;
     }
 
     /* Code blocks */
@@ -461,11 +599,18 @@
     /* LATER Zola's syntax highlighting forces a background color. Find a way to toggle style from JS when toggling light vs dark. */
 
     pre {
+      clear: both;
+      /* Align to center in a way that doesn't require clearing floating sidenotes if the table is narrow. */
+      /* margin-left: unset;
+      margin-right: unset;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%); */
+
       padding: 0.5em;
       min-width: var(--width-content);
       max-width: min-content;
-      margin-left: auto;
-      margin-right: auto;
+
       /* Only -x, not -y, otherwise there's room for a scrollbar on the right side
       which has a different color and looks bad. */
       overflow-x: auto;
@@ -557,7 +702,8 @@
   <footer>
     <!-- LATER "Fix typo" button like matklad has. -->
     <!-- LATER Share on reddit/hn/twitter/whatever? -->
-    <!-- LATER Comments or only on some pages? -->
+    <!-- LATER Comments or only on some pages? Gisqus / utterances -->
+    <!-- TODO RSS/Atom (+ note why mentioning both) -->
   </footer>
 </body>
 
