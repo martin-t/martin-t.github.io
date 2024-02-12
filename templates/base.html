@@ -312,7 +312,7 @@
 
     /* Footnotes / sidenotes */
 
-    /* LATER Accessibility - footnote and backlink should have diff text (https://jkorpela.fi/www/fn.html - The brackets) */
+    /* Accessibility note - footnote and backlink should have diff text: https://jkorpela.fi/www/fn.html#br */
     /* TODO Manual sidenotes (keep code for MD footnotes as backup?) */
     /* TODO Fix heading anchors - position everything using absolute x positions? Parent relative, child absolute? */
 
@@ -461,7 +461,8 @@
 
     /* Anchors */
 
-    /* The anchor created by zola is <h2><a href="..."/></h2>.
+    /*
+    The anchor created by zola is <h2><a href="..."/></h2>.
     We use float:left and a negative margin on the <a>
     so that headings align with other test and the anchors are to the left.
 
@@ -549,9 +550,14 @@
 
     /* Tables */
 
-    /* All tables have to be _manually_ wrapped in this div,
+    /*
+    All tables have to be _manually_ wrapped in this div,
     zola generates just a naked table element
-    and there doesn't seem to be a way to make it scrollable with just CSS. */
+    and there doesn't seem to be a way to make it scrollable with just CSS.
+
+    Note there has to be a blank line between the div and the table in Markdown.
+    Without it, the raw markdown would be included, not the rendered table.
+    */
     div.table {
       clear: both;
       /* LATER Align to center in a way that doesn't require clearing floating sidenotes if the table is narrow. */

@@ -63,15 +63,15 @@ If you want an in-depth explanation how to implement these suggestions in CSS, t
 
 <div class="table">
 
-<!-- Note the blank line between the div and the table in Markdown. Without it, the raw markdown would be included, not the rendered table. -->
-
 | A wide table | Pneumonoultramicroscopicsilicovolcanoconiosis | Pseudopseudohypoparathyroidism | Antidisestablishmentarianism | Pseudopseudohypoparathyroidism | Electroencephalographically | Floccinaucinihilipilification | Deinstitutionalization | Counterrevolutionaries | Uncharacteristically |
 |-|-|-|-|-|-|-|-|-|-|
 | Meaning | The disease silicosis | A hereditary medical disorder  | The political position of opposing disestablishment | You look it up | Approcahing normal word territory | What??? | ... | | Oh look, even a normal person might actually use this one. |
 
 </div>
 
-Once upon a time, websites looked like [this](https://danluu.com/file-consistency/). Then people realized long lines are hard to read, noticed newspapers put text in columns, and started putting everything in columns like [this](http://bettermotherfuckingwebsite.com/). Now, if you're a general intelligence (e.g. an attention-paying human), you should already see the problem. A lot of people don't really care about actual readability, just with following trends and if the trend is to put some things in columns, why not just squish everything into a column, it's less CSS to write and it's fine most of the time.
+Once upon a time, websites looked like [this](https://danluu.com/file-consistency/). Then people realized long lines are hard to read, noticed newspapers put text in columns, and started putting everything in columns like [this](http://bettermotherfuckingwebsite.com/).[^column-s] Now, if you're a general intelligence (e.g. an attention-paying human), you should already see the problem. A lot of people don't really care about actual readability, just with following trends and if the trend is to put some things in columns, why not just squish everything into a column, it's less CSS to write and it's fine most of the time.
+
+[^column-s]: Well, usually one column.<br>Now that I think about it, I can't recall any websites going all-in on a proper newspaper-like layout that uses the whole screen.
 
 Guess what, unlike text, tables are not more readable narrow. Especially not if you have to scroll sideways while over half your **wide**screen monitor is filled with empty space because somebody heard a catchy phrase about letting it breath but lacked the mental capacity to consider what it actually means.
 

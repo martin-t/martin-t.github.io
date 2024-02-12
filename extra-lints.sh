@@ -15,5 +15,6 @@ Fixmes are to be fixed before committing or at least before merging to master so
     RET=1
 fi
 
-exit $RET
+# TODO Detect lowercase I: "lorem i ipsum", "(i lorem)", "etc. i ipsum", ...
 
+exit $RET
