@@ -6,12 +6,7 @@
   Rust, gamedev, Rust gamedev, mostly
 </h1>
 
-<ul class="posts">
-  {% set posts = get_section(path="posts/_index.md") %}
-  {% for page in posts.pages %}
-  <li><em class="date">{{ page.date }}</em>
-  <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
+{% set posts = get_section(path="posts/_index.md") %}
+{% include "post-list.html" %}
 
 {% endblock content %}

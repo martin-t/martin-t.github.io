@@ -8,7 +8,7 @@ title = "Basic requirements for readable websites which most devs don't seem to 
   everything here is based on potentially incomplete/incorrect understanding and copious amounts of Stack Overflowing.
 -->
 
-Here's a list of rules how I think websites should by structured and styled for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, I have no idea why but most websites fail to meet them and that bothers me enough to write this mildly annoyed post.[^preaching][^why]
+Here's a list of rules how I think websites should by structured and styled for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, and I have no idea why, most websites fail to meet them and that bothers me enough to write this mildly annoyed post.[^preaching][^why]
 
 With examples.
 
@@ -170,6 +170,8 @@ Oh and footnotes on most websites make me wanna do things to other people with m
 ## So how do I make my website actually readable? Is there a theme or template I can use or something?
 
 Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I don't plan to make this a reusable theme but the code's [available](https://github.com/martin-t/martin-t.github.io) under [AGPLv3](https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0) and they say imitation is the sincerest form of flattery.
+
+I also plan to write a follow-up post explaining not just how to do everything mentioned here but also what else I tried and why it didn't work.
 
 That being a said, I am not a webdev. I learned most of the HTML/CSS used here in the last few weeks. Take that into account.
 

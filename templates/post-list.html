@@ -1,0 +1,23 @@
+<!--
+  Zola's shortcodes and Tera's macros are absolutely useless
+  so we just use an include and pass arguments using variables.
+
+  For reference:
+
+  Shortcodes are only available in markdown.
+  But they are also handled before markdown
+  so they don't have access to some functions like get_section.
+
+  Macros are only available in HTML, I think.
+  And again they don't seem to have access to some Zola/markdown stuff.
+-->
+
+<ul class="posts">
+  {% for post in posts.pages %}
+  <li>
+    <p><a href="{{ post.permalink | safe }}">{{ post.title }}</a></p>
+    <p><em class="page-meta">{{ post.date }}</em></p>
+    <p>{{ post.summary | safe }}</p>
+  </li>
+  {% endfor %}
+</ul>

@@ -159,6 +159,11 @@
       font-style: italic;
     }
 
+    /*
+    Pages for playing with colors:
+    - https://colorable.jxnblk.com/
+    - https://coolors.co/
+    */
     :root {
       --body-margin: 1rem;
       --width-content: 45rem;
@@ -170,24 +175,17 @@
       --color-light-foreground: #080808;
       --color-light-gray: #666666;
       --color-light-heading: #bb0e0e;
-      --color-light-link-unvisited: var(--color-light-heading);
-      --color-light-link-visited: var(--color-light-foreground);
+      --color-light-link-header-unvisited: var(--color-light-heading);
+      --color-light-link-header-visited: var(--color-light-foreground);
+      --color-light-link-post-unvisited: var(--color-light-heading); /* TODO use */
+      --color-light-link-post-visited: var(--color-light-foreground);
+      --color-light-link-text-unvisited: var(--color-light-heading);
+      --color-light-link-text-visited: var(--color-light-foreground);
       --color-light-link-hover: var(--color-light-gray);
+      --color-light-table: var(--color-light-foreground);
     }
 
     /* Basic layout and style */
-
-    /*
-    Don't restrict body or main itself
-    because we want stuff like images, tables, code blocks, etc. to be wider
-    when it makes them more readable.
-    Instead, restrict main's children, then make exceptions.
-    */
-    header, main > *, footer {
-      max-width: var(--width-content);
-      margin-left: auto;
-      margin-right: auto;
-    }
 
     body {
       margin: var(--body-margin);
@@ -215,12 +213,48 @@
       font-family: "Alegreya", serif;
     }
 
+    /*
+    Don't restrict body or main itself
+    because we want stuff like images, tables, code blocks, etc. to be wider
+    when it makes them more readable.
+    Instead, restrict main's children, then make exceptions.
+    */
+    header, main > *, footer {
+      max-width: var(--width-content);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p, li {
+      text-align: justify;
+    }
+
+    /* Links */
+
+    a {
+      color: inherit;
+      text-decoration-color: var(--color-light-link-text-unvisited);
+    }
+    a:visited {
+      color: inherit;
+      text-decoration-color: var(--color-light-link-text-visited);
+    }
+    a:hover {
+      color: var(--color-light-link-hover);
+    }
+
     /* Header */
 
     header {
       margin-bottom: 2em;
       font-weight: bold;
       font-size: 1.2em;
+    }
+    header a {
+      text-decoration-color: var(--color-light-link-header-unvisited);
+    }
+    header a:visited {
+      text-decoration-color: var(--color-light-link-header-visited);
     }
     #header-right {
       float: right;
@@ -242,31 +276,28 @@
 
     /* Post lists */
 
+    ul.posts {
+      list-style-type: none;
+      padding: 0;
+    }
     ul.posts li {
+      margin-top: 3em;
+      margin-bottom: 3em;
+    }
+    ul.posts li a {
+      font-weight: bold;
       font-size: 1.2em;
     }
-    ul.posts li em.date {
+    ul.posts li em.page-meta {
       color: var(--color-light-gray);
     }
-    a.drafts-link {
+    p.drafts-link {
+      margin-top: 3em;
+      margin-bottom: 3em;
       font-size: 1.2em;
     }
 
-    /* TODO Reorder? Headers+anchors, text content, links, sidenotes? */
-
-    /* Text content */
-
-    /*
-    Pages for playing with colors:
-    - https://colorable.jxnblk.com/
-    - https://coolors.co/
-    */
-
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.5em;
-      color: var(--color-light-heading);
-      font-weight: normal;
-    }
+    /* Article header */
 
     /* When changing this, make sure it still works with some elements missing.
     For example some pages don't have a date. */
@@ -278,6 +309,8 @@
       /* Act as a separator */
       flex: auto;
     }
+
+    /* Article footer */
 
     div.prev-next {
       display: flex;
@@ -294,18 +327,69 @@
       flex: auto;
     }
 
-    p {
-      text-align: justify;
-    }
+    /* Headers and anchors */
 
-    li {
-      text-align: justify;
+    /*
+    The anchor created by zola is <h2><a href="..."/></h2>.
+    We use float:left and a negative margin on the <a>
+    so that headings align with other test and the anchors are to the left.
+
+    We also want to hide the anchors, unless the heading _or anchor_ is hovered over.
+    The issue is there's a gap between the heading's text and the anchor
+    so the anchor disappears when the mouse is over the gap.
+    To fix this, we create a pseudo-element that covers the gap (and the anchor).
+    Based on https://stackoverflow.com/questions/48753252/enable-hover-on-margin.
+    */
+
+    /* LATER Consider using § or # by editing the template */
+    /* https://www.getzola.org/documentation/content/linking/#anchor-insertion */
+
+    /* LATER Highlight active anchor after visiting the page through one? Look how matklad does it. */
+
+    h1, h2, h3, h4, h5, h6 {
+      /* Not sure why but the anchor pseudo-element doesn't work without this */
+      position: relative;
+
+      margin-top: 1.5em;
+      color: var(--color-light-heading);
+      font-weight: normal;
+    }
+    a.zola-anchor::after {
+      content: "";
+
+      /* Make a box big enough to cover the anchor positioned after the anchor. */
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2em;
+
+      /* Position the box over the anchor so it doesn't overlap the heading so the text is selectable. */
+      right: 100%;
+    }
+    a.zola-anchor {
+      /* Not using display:none so it still registers hover even when hidden. */
+      opacity: 0;
+
+      /* Put anchors to the left of headings while keeping headings aligned with other text. */
+      margin-left: -1.5em;
+      margin-top: 0.5em;
+      float: left;
+
+      /* The default link symbol (in firefox) is too ugly when large. */
+      font-size: 0.6em;
+
+      /* Override normal link behavior. */
+      text-decoration: none;
+    }
+    :hover > a.zola-anchor, a.zola-anchor:hover {
+      /* Make the anchor visible when hovering above the heading or the anchor itself. */
+      opacity: 1;
     }
 
     /* Custom tooltips */
+
     /* Using the title attribute works but it appears only after waiting a while so the discoverability is bad. */
     /* TODO Replace title="" with custom tooltips */
-
     div.tooltip-definition {
       border: 1px solid var(--color-light-gray);
     }
@@ -445,75 +529,6 @@
 
     /* LATER Use JS to remove clear:both from tables/code/images which are narrower than main content. */
 
-    /* Links */
-
-    a {
-      color: inherit;
-      text-decoration-color: var(--color-light-link-unvisited);
-    }
-    a:visited {
-      color: inherit;
-      text-decoration-color: var(--color-light-link-visited);
-    }
-    a:hover {
-      color: var(--color-light-link-hover);
-    }
-
-    /* Anchors */
-
-    /*
-    The anchor created by zola is <h2><a href="..."/></h2>.
-    We use float:left and a negative margin on the <a>
-    so that headings align with other test and the anchors are to the left.
-
-    We also want to hide the anchors, unless the heading _or anchor_ is hovered over.
-    The issue is there's a gap between the heading's text and the anchor
-    so the anchor disappears when the mouse is over the gap.
-    To fix this, we create a pseudo-element that covers the gap (and the anchor).
-    Based on https://stackoverflow.com/questions/48753252/enable-hover-on-margin.
-    */
-
-    /* LATER Consider using § or # by editing the template */
-    /* https://www.getzola.org/documentation/content/linking/#anchor-insertion */
-
-    /* LATER Highlight active anchor after visiting the page through one? Look how matklad does it. */
-
-    h2, h3, h4, h5, h6 {
-      /* Not sure why but the pseudo-element doesn't work without this */
-      position: relative;
-    }
-    a.zola-anchor::after {
-      content: "";
-
-      /* Make a box big enough to cover the anchor positioned after the anchor. */
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 2em;
-
-      /* Position the box over the anchor so it doesn't overlap the heading so the text is selectable. */
-      right: 100%;
-    }
-    a.zola-anchor {
-      /* Not using display:none so it still registers hover even when hidden. */
-      opacity: 0;
-
-      /* Put anchors to the left of headings while keeping headings aligned with other text. */
-      margin-left: -1.5em;
-      margin-top: 0.5em;
-      float: left;
-
-      /* The default link symbol (in firefox) is too ugly when large. */
-      font-size: 0.6em;
-
-      /* Override normal link behavior. */
-      text-decoration: none;
-    }
-    :hover > a.zola-anchor, a.zola-anchor:hover {
-      /* Make the anchor visible when hovering above the heading or the anchor itself. */
-      opacity: 1;
-    }
-
     /* Images */
 
     /*
@@ -591,7 +606,7 @@
       background-color: var(--color-light-background);
 
       /* Borders don't work with sticky headers so we use inset shadows instead. */
-      box-shadow: inset 0 2px 0 #000000, inset 0 -1px 0 #000000;
+      box-shadow: inset 0 2px 0 var(--color-light-table), inset 0 -1px 0 var(--color-light-table);
       /* Same padding as a normal cell but +3px to account for the inset shadow. */
       padding: calc(0.3em + 3px) 1em 0.3em 1em;
     }

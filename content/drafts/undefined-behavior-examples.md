@@ -2,9 +2,15 @@
 title = "Undefined Behavior Explained with Examples"
 +++
 
-<!-- LATER summary -->
+It's probably undefined but it appears to work as expected. Can we ship it?
 
-## ELI5 explnation
+No. Let's see what it takes to break it.
+
+<!-- more -->
+
+## Prerequisite: Compier optimizations
+
+ELI5 explnation of how compier optimizations work and a comparison of aliasing analysis in C++ and Rust.
 
 Optimizations work by allowing the compiler to make more assumptions about your code. For example, in Rust, there can only be one mutable reference to a given place in memory. So when a function takes 2 mutable references, the compiler assumes they always point to different addresses. This means when you change data through one reference and data from the other is already in registers, it doesn't have to reload the data subsequently accessed through the other reference.
 

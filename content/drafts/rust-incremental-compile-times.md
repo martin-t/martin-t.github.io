@@ -2,11 +2,9 @@
 title = "N simple tricks to reduce incremental compile times in Rust by X"
 +++
 
-## TL;DR
+**TL;DR:** Go to [this section](#the-n-simple-tricks), add the 3 snippets to your config and you'll get around TODO faster rebuilds[^fine-print]. Seriously, it barely takes 5 minutes. Just do it and start a build. The first one will take longer (it rebuilds everything with the new configuration) so you'll have time to read the rest of the article. After that, incremental rebuilds should be very noticeably faster.
 
-Go to [this section](#the-n-simple-tricks), add the 3 snippets to your config and you'll get around TODO faster rebuilds[^fine-print]. Seriously, it barely takes 5 minutes. Just do it and start a build. The first one will take longer (it rebuilds everything with the new configuration) so you'll have time to read the rest of the article. After that, incremental rebuilds should be very noticeably faster.
-
-<!-- LATER summary -->
+<!-- more -->
 
 [^fine-print]: Fine print: on most projects. For example I had little success improving rebuild times for my proc-macro crate, though it has improved them for projects using the proc-macros.
 
