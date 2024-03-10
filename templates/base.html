@@ -281,6 +281,15 @@
       background-color: var(--color-light-background);
     }
 
+    /* Footer */
+
+    footer {
+      margin-top: 2em;
+      font-weight: bold;
+      font-size: 1.2em;
+      /* TODO footer to center */
+    }
+
     /* Post lists */
 
     ul.posts {
@@ -717,7 +726,12 @@
       <div id="header-right">
         <!-- LATER Icons. Maybe vertical-align: baseline. -->
         <a href="https://discord.gg/SDcz3vUk36" title="RustyGames">Discord</a>
-        <a href="https://github.com/martin-t" title="martin-t">GitHub</a>
+        <!-- <a href="https://github.com/martin-t" title="martin-t">GitHub</a> -->
+        <!-- github with static/fa-icons/github.svg -->
+        <a href="https://github.com/martin-t">
+          <img src="/fa-icons/github.svg" alt="martin-t on GitHub" width="16" height="16">
+          martin-t
+        </a>
       </div>
     </nav>
   </header>
@@ -732,7 +746,8 @@
     <!-- LATER Comments or only on some pages? Gisqus / utterances -->
     <!-- LATER Webmentions? -->
     <!-- TODO RSS/Atom (+ note why mentioning both) -->
-    <!-- LATER Mastodon? -->
+    <a href="{{ atom | safe }}" title="Yes, it's only atom, I only mention RSS for people who ctrl+f RSS">Atom / RSS</a>
+    <a href="https://mastodon.social/@martin_t">Mastodon</a>
   </footer>
 </body>
 
