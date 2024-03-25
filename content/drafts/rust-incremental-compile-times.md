@@ -229,3 +229,7 @@ mention changing rustflags causes a full recompile
 Is this worth it? On a random day I spent 5 hours working on my game, 7 minutes of that was spent compiling. Without optimizations i would have spent TODO staring at the compiler's progress bar. If it takes you TODO to read this article and implement the changes in your project, it'll pay off in a single day.
 
 TODO make all my readmes/configs/tomls point to this instead
+
+TODO Read https://old.reddit.com/r/rust/comments/1bhpfeb/vastly_improved_recompile_times_in_rust_with/
+
+TODO Read https://www.coderemote.dev/blog/faster-rust-compiler-macro-expansion-caching/

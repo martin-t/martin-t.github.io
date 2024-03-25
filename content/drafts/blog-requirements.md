@@ -171,9 +171,9 @@ Oh and footnotes on most websites make me wanna do things to other people with m
 
 Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I don't plan to make this a reusable theme but the code's [available](https://github.com/martin-t/martin-t.github.io) under [AGPLv3](https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0) and they say imitation is the sincerest form of flattery.
 
-I also plan to write a follow-up post explaining not just how to do everything mentioned here but also what else I tried and why it didn't work.
+I also plan to write a follow-up post explaining not just how to do everything mentioned here but also what else I tried and why it didn't work. You might think each of these requirements is just a couple lines of CSS you can copy-paste but this is the web, turns out things interact with each other in surprising ways and I am still ironing out the kinks.
 
-That being a said, I am not a webdev. I learned most of the HTML/CSS used here in the last few weeks. Take that into account.
+That being a said, I am not a webdev. I learned most of the HTML/CSS used here in the last few weeks. Take that into account and if you know how to do things better, let me know. <!-- LATER contact page? -->
 
 There's also a [test page](/test) which contains more thorough examples of everything covered here.
 
