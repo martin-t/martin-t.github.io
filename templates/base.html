@@ -491,6 +491,11 @@
     sup.footnote-reference a {
       text-decoration: none;
     }
+
+    ul.posts div.footnote-definition {
+      /* Don't show footnotes in summaries. Refs are hidden by zola, also hide defs. */
+      display: none;
+    }
     div:nth-child(even of .footnote-definition) {
       float: right;
       clear: right;
