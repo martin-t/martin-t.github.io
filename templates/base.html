@@ -252,7 +252,7 @@
       color: var(--color-light-link-hover);
     }
 
-    /* Header */
+    /* Header and footer */
 
     header {
       margin-bottom: 2em;
@@ -269,7 +269,24 @@
       float: right;
     }
     #header-right a {
-      margin-left: 0.3em;
+      margin-left: 0.8em;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 3em;
+      text-align: center;
+      font-weight: bold;
+    }
+    footer a {
+      margin-left: 0.8em;
+      margin-right: 0.8em;
+      text-decoration: none;
+    }
+
+    #header-right a span, footer a span {
+      /* Underline only the text, not the spaces before/after. */
+      text-decoration: underline;
     }
 
     #styles {
@@ -281,15 +298,6 @@
       margin: 1em;
       /* LATER z-index to be above images */
       background-color: var(--color-light-background);
-    }
-
-    /* Footer */
-
-    footer {
-      margin-top: 2em;
-      font-weight: bold;
-      font-size: 1.2em;
-      /* TODO footer to center */
     }
 
     /* Post lists */
@@ -341,7 +349,7 @@
       flex: auto;
     }
 
-    /* Headers and anchors */
+    /* Headings and anchors */
 
     /*
     The anchor created by zola is <h2><a href="..."/></h2>.
@@ -674,6 +682,10 @@
     addEventListener("DOMContentLoaded", setStyle);
   </script>
 
+  <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
+  <link href="/fontawesome/css/brands.css" rel="stylesheet" />
+  <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+
   <!-- Google tag (gtag.js) -->
   <!--
     If you don't wanna be spied on by Google,
@@ -727,12 +739,13 @@
 
       <div id="header-right">
         <!-- LATER Icons. Maybe vertical-align: baseline. -->
-        <a href="https://discord.gg/SDcz3vUk36" title="RustyGames">Discord</a>
-        <!-- <a href="https://github.com/martin-t" title="martin-t">GitHub</a> -->
-        <!-- github with static/fa-icons/github.svg -->
+        <a href="https://discord.gg/SDcz3vUk36">
+          <i class="fa-brands fa-discord"></i>
+          <span>RustyGames</span>
+        </a>
         <a href="https://github.com/martin-t">
-          <img src="/fa-icons/github.svg" alt="martin-t on GitHub" width="16" height="16">
-          martin-t
+          <i class="fa-brands fa-github"></i>
+          <span>martin-t</span>
         </a>
       </div>
     </nav>
@@ -747,9 +760,22 @@
     <!-- LATER Share on reddit/hn/twitter/whatever? -->
     <!-- LATER Comments or only on some pages? Gisqus / utterances -->
     <!-- LATER Webmentions? -->
-    <!-- TODO RSS/Atom (+ note why mentioning both) -->
-    <a href="{{ atom | safe }}" title="Yes, it's only atom, I only mention RSS for people who ctrl+f RSS">Atom / RSS</a>
-    <a href="https://mastodon.social/@martin_t">Mastodon</a>
+    <a href="{{ atom | safe }}" title="Yes, it's only atom, Is mention RSS for people who ctrl+f RSS">
+      <i class="fa-solid fa-rss"></i>
+      <span>Atom / RSS</span>
+    </a>
+    <a href="https://mastodon.social/@martin_t">
+      <i class="fa-brands fa-mastodon"></i>
+      <span>@martin_t</span>
+    </a>
+    <a href="https://discord.gg/SDcz3vUk36">
+      <i class="fa-brands fa-discord"></i>
+      <span>RustyGames</span>
+    </a>
+    <a href="https://github.com/martin-t">
+      <i class="fa-brands fa-github"></i>
+      <span>martin-t</span>
+    </a>
   </footer>
 </body>
 
