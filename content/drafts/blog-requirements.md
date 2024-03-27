@@ -80,6 +80,7 @@ So here's the rules for maximum readability:
 - Tables should be as wide as necessary, not limited by text width.
 - If the table needs to be wider than the monitor, then the horizontal scrollbar should only scroll the table, not the whole page.
 - Tables are used to convey information in a clear and organized manner, information density matters. A table that looks "pretty" at the cost of making you scroll defeats that purpose. Don't add tons of unnecessary whitespace.[^table-whitespace]
+- Headers should be sticky - remain visible even when scrolling.
 
 [^table-whitespace]: This is not just about websites. Compare screenshots of common Windows and Linux tools. WinDirStat vs QDirStat, ProcessExplorer vs any linux system monitor, OlldDbg/x64dbg vs edb. As much as I prefer linux, I always felt its GUI tools were clumsy and inefficient. Then I tried Windows again and realized its tools consistently fit more information on screen because their Linux counterparts have slightly larger fonts, larger icons, thicker borders and put a shitton of unnecessary whitespace around everything.<br>Not to mention ProcessExplorer doesn't even have a proper alternative. Ever had random CPU usage spikes? On Windows you keep PE open and when it happens you mouse over the graph to see which process caused it. Linux doesn't have a single tool that can do that. Some idiot told me Linux is still better because I can _just_ write a script. No. Just no.
 
@@ -92,6 +93,8 @@ The [desktop version](https://en.wikipedia.org/wiki/Comparison_of_operating_syst
 The [mobile version](https://en.m.wikipedia.org/wiki/Comparison_of_operating_system_kernels) is basically the same on a wide screen but when you make the window sufficiently narrow, it changes behavior so that everything is as wide as the screen and each table gets its own scrollbar. Of course that doesn't help you because to get this behavior you need to make the window uselessly narrow in the first place.
 
 And one more thing: If the table is taller than the screen, the header should remain at the top of the screen when scrolling down. There's nothing more annoying than having to scroll up every 10 seconds to look up which column is which. Webpages aren't paper. Keep the header on screen at all times. [Some wikipedia pages](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_density) do this, others don't.
+
+Ideally both top and left headers should be sticky but I am told it's insanely hard to have both at the same time. Hopefully tables both taller and wider than screen are rare so you can pick which one you make sticky for each table separately.
 
 ## Code blocks must have syntax highlighting and behave reasonably
 
