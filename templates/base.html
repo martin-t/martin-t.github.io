@@ -491,14 +491,14 @@
     sup.footnote-reference a {
       text-decoration: none;
     }
-    div:nth-child(odd of .footnote-definition) {
+    div:nth-child(even of .footnote-definition) {
       float: right;
       clear: right;
       width: var(--width-sidenotes);
       margin-left: 2em;
       margin-right: calc(var(--width-side) - var(--width-sidenotes) - 2em);
     }
-    div:nth-child(even of .footnote-definition) {
+    div:nth-child(odd of .footnote-definition) {
       float: left;
       clear: left;
       width: var(--width-sidenotes);
