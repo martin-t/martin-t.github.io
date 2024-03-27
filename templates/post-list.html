@@ -15,7 +15,7 @@
 <ul class="posts">
   {% for post in posts.pages %}
   <li>
-    <p><a href="{{ post.permalink | safe }}">{{ post.title }}</a></p>
+    <p><a class="title" href="{{ post.permalink | safe }}">{{ post.title }}</a></p>
     <div class="page-meta">
       <em>{{ post.date }} {% if post.updated %} (updated {{ post.updated }}) {% endif %}</em>
     </div>
