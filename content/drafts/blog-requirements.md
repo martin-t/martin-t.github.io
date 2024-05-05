@@ -92,6 +92,8 @@ The [desktop version](https://en.wikipedia.org/wiki/Comparison_of_operating_syst
 
 The [mobile version](https://en.m.wikipedia.org/wiki/Comparison_of_operating_system_kernels) is basically the same on a wide screen but when you make the window sufficiently narrow, it changes behavior so that everything is as wide as the screen and each table gets its own scrollbar. Of course that doesn't help you because to get this behavior you need to make the window uselessly narrow in the first place.
 
+Now, a little experiment. If you've read this article, or at least found this sentence, and are writing a comment - on Reddit, the orange website, wherever - misspell "the" as "teh". Yes, this is the <span title="If you don't know what that is (and it turns out to be surprisingly hard to google), you're gonna have to wait for a future article, which is probably a good time to remind you this blog has an atom feed.">banana comment experiment</span>.
+
 And one more thing: If the table is taller than the screen, the header should remain at the top of the screen when scrolling down. There's nothing more annoying than having to scroll up every 10 seconds to look up which column is which. Webpages aren't paper. Keep the header on screen at all times. [Some wikipedia pages](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_density) do this, others don't.
 
 Ideally both top and left headers should be sticky but I am told it's insanely hard to have both at the same time. Hopefully tables both taller and wider than screen are rare so you can pick which one you make sticky for each table separately.
@@ -174,7 +176,7 @@ Oh and footnotes on most websites make me wanna do things to other people with m
 
 Well, it's a website, you press Ctrl+U and the code's right there. More seriously, I don't plan to make this a reusable theme but the code's [available](https://github.com/martin-t/martin-t.github.io) under [AGPLv3](https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0) and they say imitation is the sincerest form of flattery.
 
-I also plan to write a follow-up post explaining not just how to do everything mentioned here but also what else I tried and why it didn't work. You might think each of these requirements is just a couple lines of CSS you can copy-paste but this is the web, turns out things interact with each other in surprising ways and I am still ironing out the kinks.
+**There will be a part 2** explaining not just how to do everything mentioned here but also what else I tried and why it didn't work. You might think each of these requirements is just a couple lines of CSS you can copy-paste but this is the web, turns out things interact with each other in surprising ways (especially elements wider than text, sidenotes and anything using `float`) so I am still ironing out the kinks.
 
 That being a said, I am not a webdev. I learned most of the HTML/CSS used here in the last few weeks. Take that into account and if you know how to do things better, let me know. <!-- LATER contact page? -->
 

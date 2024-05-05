@@ -10,7 +10,7 @@
 <!-- LATER Prev/next post -->
 
 <!--
-  TODO Test on mobile:
+  FIXME Test on mobile:
     - Header too wide
     - Smaller font? Maybe only code blocks?
     - Check fonts for inputs (at least 16?) - click, make sure it doesn't zoom the page.
@@ -255,7 +255,10 @@
     /* Header and footer */
 
     header {
-      margin-bottom: 2em;
+      /* Make sure on pages without a date,
+      the h1 heading is still closer to the text than the header. */
+      margin-bottom: 3em;
+
       font-weight: bold;
       font-size: 1.2em;
     }
@@ -422,10 +425,13 @@
     /* Accessibility note - footnote and backlink should have diff text: https://jkorpela.fi/www/fn.html#br */
     /* TODO Manual sidenotes (keep code for MD footnotes as backup?) */
     /* TODO Fix heading anchors - position everything using absolute x positions? Parent relative, child absolute? */
-    /*  Notes: Try position: absolute without top/bottom. Negative margins only work for block elements. */
 
     /*
-    Notes (maybe future article?):
+    Notes about (side)notes:
+    - Future article:
+      . TL;DR: CSS is shit and there's no good way to implement sidenotes. There are multiple bad ones so let's explore all of them and see when they break, how they break and, given my limited CSS knowledge, why they break so you can pick the least bad option for your website.
+      - You might be thinking: "But wait your blog has pretty good sidenotes, there must be a way". No. My sidenotes suck, they only look OK because I take great care to avoid any of the edgecases of the particular method I chose.
+
     - Requirements:
       - Put notes on the side at the same height as the reference.
       - Must not overlap with each other or other content,
@@ -472,9 +478,13 @@
           - Firefox - F12 -> Debugger -> Gear icon -> Disable JavaScript. (include a screenshot)
           - Chrome - https://stackoverflow.com/questions/13405383/how-to-disable-javascript-in-chrome-developer-tools.
       - Tufte CSS - https://github.com/edwardtufte/tufte-css
+        - Uses float and clear so interacts poorly with other floated elements.
         - Explanation here: https://edwardtufte.github.io/tufte-css/
-        - Another explanation here: http://32bitkid.github.io/tufte-css/
+          - Uses <input> for toggleable sidenotes on narrow screens.
+        - Another version with another explanation here: http://32bitkid.github.io/tufte-css/
           - This is an older version but it showcases more elements such as tables and code blocks.
+          - It does sidenotes differently. On narrow screens,
+            clicling the number opens them on the whole screen with no way to go back.
       - https://www.kooslooijesteijn.net/blog/sidenotes-without-js
         - Adds "(Sidenote: ...)" only visible without CSS (e.g. screen readers).
         - Uses a trick with hidden checkboxes, not sure why.
@@ -484,6 +494,34 @@
         - Uses inline elements, positions them using `float: left` and moves them up a bit for no reason.
         - Generates numbers using a CSS counter.
     */
+
+    /*  Notes: Try position: absolute without top/bottom. Negative margins only work for block elements. */
+    /*
+    Float+clear conflicts with other elements that use it but puts sidenotes below each other.
+    Position absolute doesn't collide but sidenotes need to be manually positioned to not overlap.
+    Postion relative doesn't collide and doesn't overlap but leaves empty space at the original location.
+    */
+
+    span.sidenote {
+      /* position: absolute;
+      left: 20px; */
+
+      display: block;
+      position: relative;
+      left: -250px;
+      margin-bottom: -1000px;
+
+      font-size: 0.8em;
+      text-align: justify;
+    }
+    /* span.sidenote-left {
+      float: left;
+      clear: left;
+    }
+    span.sidenote-right {
+      float: right;
+      clear: right;
+    } */
 
     sup.footnote-reference {
       margin: 0 0.1em;
@@ -580,6 +618,7 @@
     figure.right {
       /* LATER: Using float here interacts with sidenotes, find a better way. */
       float: right;
+
       margin-top: 1em;
       margin-bottom: 0;
       margin-left: 2em;
@@ -766,7 +805,7 @@
     <!-- LATER Share on reddit/hn/twitter/whatever? -->
     <!-- LATER Comments or only on some pages? Gisqus / utterances -->
     <!-- LATER Webmentions? -->
-    <a href="{{ atom | safe }}" title="Yes, it's only atom, Is mention RSS for people who ctrl+f RSS">
+    <a href="{{ atom | safe }}" title="Yes, it's only atom, I mention RSS for people who ctrl+f RSS">
       <i class="fa-solid fa-rss"></i>
       <span>Atom / RSS</span>
     </a>
