@@ -7,7 +7,7 @@ This page tests all kinds of combinations of all kinds of stuff. All content bel
 
 ## Heading 2 - text
 
-FIXME manual sidenotes
+TODO FIX manual sidenotes
 
 Lorem ipsum[^fna1][^fna2] [^fna3] dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
 
