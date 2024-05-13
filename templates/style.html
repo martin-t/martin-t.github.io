@@ -87,6 +87,10 @@ Notes to self:
 Size variables used for positioning should be relative to the whole screen (e.g. rem and vw, not em and %)
 because the calculations can be used in elements with different scales.
 
+Note that 100vw assumes scrollbars don't exist, meaning it counts them as available space even when they do.
+Scrollbar width differs between browsers and OSes so we assume 20px
+(the highest actual value I've seen mentioned is 17px).
+
 TODO Reduced and mobile layouts
 
 LATER Reduce manual math: https://www.getzola.org/documentation/content/sass/
@@ -95,7 +99,7 @@ Full layout - sidenotes on both sides:
 | margin | sidenote | gap | center | gap | sidenote | margin |
 2*margin + center + 2*gap + 2*sidenote = 2*1 + 45 + 2*18 = 83
 
-Reduced layout - sidenotes on one side:
+Reduced layout - sidenotes on one side only - meant to fit on half of a 1920x1080 screen:
 | margin | sidenote | gap | center | gap | margin |
 2*margin + center + gap + sidenote
 
@@ -105,10 +109,12 @@ Mobile layout - sidenotes inline:
 */
 :root {
   --body-margin: 1rem;
-  --width-sidenote-gap: 2rem;
-  --width-center-max: 45rem;
+  --width-scrollbar: 20px; /* LATER Overwrite with actual value from JS? */
+  --full: calc(100vw - var(--width-scrollbar));
+  --width-sidenote-gap: 1.5rem;
+  --width-center-max: 42rem;
   --width-center-min: 30rem;
-  --width-sidenote-max: 18rem;
+  --width-sidenote-max: 16rem;
   --width-sidenote-min: 12rem;
 }
 @media (min-width: 60rem) {
@@ -124,7 +130,8 @@ Mobile layout - sidenotes inline:
   }
 }
 :root {
-  --width-extra-space: calc(100vw - var(--width-center) - 2 * var(--width-sidenote-gap) - 2 * var(--width-sidenote) - 2 * var(--body-margin));
+  /* LATER Test what happens with manual sidenotes and 100% here - things should break */
+  --width-extra-space: calc(var(--full) - var(--width-center) - 2 * var(--width-sidenote-gap) - 2 * var(--width-sidenote) - 2 * var(--body-margin));
   --width-sidenote-margin: calc(var(--width-extra-space) / 2);
 }
 #dbg {
