@@ -11,7 +11,12 @@ TODO FIX manual sidenotes
 
 Lorem ipsum[^fna1][^fna2] [^fna3] dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
 
-Maecenas<span class="sidenote sidenote-left">This is sidenote 1<br>with two lines.</span><span class="sidenote sidenote-right">This is sidenote 2<br>with two lines.</span> congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fna4]
+Maecenas<sup class="sidenote-reference"></sup>
+<span class="sidenote-definition left">
+  <sup class="sidenote-definition-label"></sup>
+  This is sidenote 1<br>with a line break.
+</span>
+congue ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fna4]
 
 Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
 

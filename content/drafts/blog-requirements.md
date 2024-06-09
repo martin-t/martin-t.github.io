@@ -22,7 +22,7 @@ Note that everything here is my personal opinion but feel free to consider it fa
 
 ## Use sidenotes instead of footnotes
 
-TODO FIX Diagram of screen with empty space?
+TODO FIX Diagram of screen with empty space? Gimp smooth stroke? canva.com?
 
 Having to jump to the bottom breaks the flow of reading, duh. "Footnotes" should really be sidenotes so people can glance at them while reading the main text. In fact, peripheral vision lets them know if it's a 2 word throwaway joke or 2 paragraphs of extra explanation without even thinking about it.
 
