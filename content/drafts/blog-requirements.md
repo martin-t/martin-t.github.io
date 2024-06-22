@@ -8,7 +8,7 @@ title = "Basic requirements for readable websites which most devs don't seem to 
   everything here is based on potentially incomplete/incorrect understanding and copious amounts of Stack Overflowing.
 -->
 
-Here's a list of rules how I think websites should by structured and styled for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, and I have no idea why, most websites fail to meet them and that bothers me enough to write this mildly annoyed post.[^preaching][^why]
+Here's a list of rules how I think websites should by structured and styled for better readability. In my opinion these are all fairly obvious once you think about it and should be baseline requirements for text content. Unfortunately, however, and I have no idea why, most websites fail to meet them and that bothers me enough to write this mildly annoyed post.[^preaching] [^why]
 
 [^preaching]: You'll immediately notice that while I am preaching, my own blog doesn't meet all of them (at the moment). That's because I couldn't find a single Zola theme which ~~looked at least barely acceptable~~ satisfied them. So I guess I am now learning enough HTML/CSS to do it myself ... or at least discover on my own why so few websites do things right, understand why it's literally impossible to put pixels on screen the way I want, and rekindle my hatred for webdev.
 
