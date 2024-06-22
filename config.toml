@@ -8,7 +8,11 @@ description = "Rust, gamedev, Rust gamedev, mostly"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-generate_feed = true
+generate_feeds = true
+
+feed_filenames = ["atom.xml", "rss.xml"]
+
+author = "martin-t"
 
 # Whether to build a search index to be used later on by a JavaScript library
 # LATER Use this

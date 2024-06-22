@@ -57,6 +57,8 @@
 
   <link rel="icon" href="/resf-black-export-drawing-100x100.png">
 
+  {% set rss = get_url(path="rss.xml", trailing_slash=false) %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ rss | safe }}">
   {% set atom = get_url(path="atom.xml", trailing_slash=false) %}
   <link rel="alternate" type="application/atom+xml" title="Atom" href="{{ atom | safe }}">
 
@@ -181,9 +183,14 @@
     <!-- LATER Share on reddit/hn/twitter/whatever? -->
     <!-- LATER Comments or only on some pages? Gisqus / utterances -->
     <!-- LATER Webmentions? -->
-    <a href="{{ atom | safe }}" title="Yes, it's only atom, I mention RSS for people who ctrl+f RSS">
+
+    <a href="{{ rss | safe }}">
       <i class="fa-solid fa-rss"></i>
-      <span>Atom / RSS</span>
+      <span>RSS</span>
+    </a>
+    <a href="{{ atom | safe }}">
+      <i class="fa-solid fa-atom"></i>
+      <span>Atom</span>
     </a>
     <a href="https://mastodon.social/@martin_t">
       <i class="fa-brands fa-mastodon"></i>
