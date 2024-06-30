@@ -16,7 +16,9 @@ Maecenas<sup class="sidenote-reference"></sup>
   <sup class="sidenote-definition-label"></sup>
   This is sidenote 1<br>with a line break.
 </span>
-congue ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fna4]
+congue{% sidenote() %}
+  This is sidenote 2<br>with a line break.
+{% end %} ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fna4]
 
 Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
 
