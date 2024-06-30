@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: shalzz/zola-deploy-action@v0.18.0
+      # If this stops being updated, replace it with https://github.com/taiki-e/install-action
+      - uses: shalzz/zola-deploy-action@v0.19.1
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
