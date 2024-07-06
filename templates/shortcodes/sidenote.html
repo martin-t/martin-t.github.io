@@ -1,5 +1,5 @@
 <sup class="sidenote-reference"></sup>
-<span class="sidenote-definition left">
+<span class="sidenote-definition {% if side %}{{side}}{% else %}auto{% endif %}">
   <sup class="sidenote-definition-label"></sup>
-  {{ body | safe }}
+  {{ body | markdown(inline=True) | safe }}
 </span>

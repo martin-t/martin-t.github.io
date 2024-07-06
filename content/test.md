@@ -9,40 +9,33 @@ This page tests all kinds of combinations of all kinds of stuff. All content bel
 
 TODO FIX manual sidenotes
 
-Lorem ipsum[^fna1] [^fna2] [^fna3] dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
-
-Maecenas<sup class="sidenote-reference"></sup>
-<span class="sidenote-definition left">
-  <sup class="sidenote-definition-label"></sup>
+Lorem ipsum{% sidenote() %}
   This is sidenote 1<br>with a line break.
-</span>
-congue{% sidenote() %}
+{% end %}
+{% sidenote() %}
   This is sidenote 2<br>with a line break.
-{% end %} ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fna4]
+{% end %}
+{% sidenote() %}
+  This is sidenote 3<br>with a line break.
+{% end %} dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
+
+Maecenas ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.{% sidenote() %}
+  This is sidenote 4<br>with a line break.
+{% end %}
 
 Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
 
-<!-- Footnotes intentionally together, not under their paragraphs. -->
-
-[^fna1]: This is footnote 1.
-
-[^fna2]: This is footnote 2.
-
-[^fna3]: This is footnote 3.
-
-[^fna4]: This is footnote 4.
-
 ### Heading 3 - fancy text
 
-Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.[^fn-fancy]
-
-[^fn-fancy]: Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.
+Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.{% sidenote() %}
+  Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.
+{% end %}
 
 ### Heading 3 - links
 
-At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).[^fn-link]
-
-[^fn-link]: At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).
+At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).{% sidenote() %}
+  At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).
+{% end %}
 
 <!-- The unvisited link should give server not found so the browser doesn't add it to history and it remains unvisited. At least until someone registers the domain just to break my test page. -->
 
@@ -65,7 +58,10 @@ It's one of <span title="This one.">these</span> words. And <span style="text-de
 
 #### Heading 4 - more text
 
-Lorem ipsum[^fnb1] [^fnb2] [^fnb3] dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fnb4] Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. I said it's just filler, why are you reading <span title=":D">this<span>? Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+Lorem ipsum{% sidenote() %}
+  This is footnote 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+{% end %}{% sidenote() %}
+{% sidenote() %} dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fnb4] Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. I said it's just filler, why are you reading <span title=":D">this<span>? Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
 
 [^fnb1]: This is footnote 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 

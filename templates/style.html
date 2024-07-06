@@ -114,7 +114,7 @@ Mobile layout - sidenotes inline:
   --width-sidenote-gap: 1.5rem;
   --width-center-max: 42rem;
   --width-center-min: 30rem;
-  --width-sidenote-max: 16rem;
+  --width-sidenote-max: 18rem;
   --width-sidenote-min: 12rem;
 }
 @media (min-width: 60rem) {
@@ -511,7 +511,7 @@ body {
 .sidenote-reference::before {
   counter-increment: sidenotes;
   content: counter(sidenotes);
-  margin: 0 0 0 0.2em;
+  margin: 0 0 0 0.1em;
   color: var(--color-light-heading);
 }
 .sidenote-reference:hover::before {
@@ -519,12 +519,12 @@ body {
   /* Box shadow */
   box-shadow: 0 0 0 1px var(--color-light-gray);
 }
-.sidenote-definition.right {
+.sidenote-definition.right, .sidenote-definition.auto:nth-child(even of .sidenote-definition) {
   float: right;
   clear: right;
   margin-right: calc(-1 * (var(--width-sidenote) + var(--width-sidenote-gap)));
 }
-.sidenote-definition.left {
+.sidenote-definition.left, .sidenote-definition.auto:nth-child(odd of .sidenote-definition) {
   float: left;
   clear: left;
   margin-left: calc(-1 * (var(--width-sidenote) + var(--width-sidenote-gap)));
