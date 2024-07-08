@@ -519,12 +519,12 @@ body {
   /* Box shadow */
   box-shadow: 0 0 0 1px var(--color-light-gray);
 }
-.sidenote-definition.right, .sidenote-definition.auto:nth-child(even of .sidenote-definition) {
+.sidenote-definition.right, .sidenote-definition.auto:nth-of-type(even) {
   float: right;
   clear: right;
   margin-right: calc(-1 * (var(--width-sidenote) + var(--width-sidenote-gap)));
 }
-.sidenote-definition.left, .sidenote-definition.auto:nth-child(odd of .sidenote-definition) {
+.sidenote-definition.left, .sidenote-definition.auto:nth-of-type(odd) {
   float: left;
   clear: left;
   margin-left: calc(-1 * (var(--width-sidenote) + var(--width-sidenote-gap)));

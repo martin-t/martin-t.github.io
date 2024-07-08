@@ -9,6 +9,8 @@ This page tests all kinds of combinations of all kinds of stuff. All content bel
 
 TODO FIX manual sidenotes
 
+<!-- Sidenotes in different paragraphs to see if they alternate sides. -->
+
 Lorem ipsum{% sidenote() %}
   This is sidenote 1<br>with a line break.
 {% end %}
@@ -23,17 +25,19 @@ Maecenas ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis d
   This is sidenote 4<br>with a line break.
 {% end %}
 
-Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor{% sidenote() %}
+  This is sidenote 5<br>with a line break.
+{% end %}.
 
 ### Heading 3 - fancy text
 
-Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.{% sidenote() %}
+Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.{% sidenote(side="right") %}
   Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec ~~a diam~~ lectus.
 {% end %}
 
 ### Heading 3 - links
 
-At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).{% sidenote() %}
+At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).{% sidenote(side="right") %}
   At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).
 {% end %}
 
@@ -58,33 +62,28 @@ It's one of <span title="This one.">these</span> words. And <span style="text-de
 
 #### Heading 4 - more text
 
-Lorem ipsum{% sidenote() %}
+<!-- All sidenotes on the left to test heading anchors don't get pushed down by them. -->
+
+Lorem ipsum{% sidenote(side="left") %}
   This is footnote 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-{% end %}{% sidenote() %}
-{% sidenote() %} dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.[^fnb4] Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. I said it's just filler, why are you reading <span title=":D">this<span>? Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
-
-[^fnb1]: This is footnote 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-
-[^fnb2]: This is footnote 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-
-[^fnb3]: This is footnote 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-
-[^fnb4]: This is footnote 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+{% end %}{% sidenote(side="left") %}
+  This is footnote 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+{% end %}{% sidenote(side="left") %}
+  This is footnote 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+{% end %}
+dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.{% sidenote(side="left") %}
+  This is footnote 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+{% end %} Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. I said it's just filler, why are you reading <span title=":D">this<span>? Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
 
 ##### Heading 5 - even more text
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 
-<!--
-TODO: Manual paragraphs that can have blank lines and other HTML inside
-so I can put footnotes inline with text and not have unreadable source code.
--->
-
 <p>
 
 Manual paragraph.
 
-Second sentence. Should be on the same line.
+Second sentence. Same line? Different line?
 
 </p>
 
@@ -94,9 +93,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Se
 
 ## Heading 2 - code
 
-Fits in the column[^footnote-narrow-code]
-
-[^footnote-narrow-code]: This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+Fits in the column{% sidenote(side="right") %}
+  This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+{% end %}
 
 ```rust
 fn main() {
@@ -104,9 +103,9 @@ fn main() {
 }
 ```
 
-Overflows the column but fits on the screen[^footnote-wide-code]
-
-[^footnote-wide-code]: This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+Overflows the column but fits on the screen{% sidenote(side="right") %}
+  This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+{% end %}
 
 ```rust
 fn main() {
@@ -128,9 +127,9 @@ Very long inline code block `// This comment turns this line into a very, very l
 
 ## Heading 2 - table
 
-Fits in the column[^footnote-narrow-table]
-
-[^footnote-narrow-table]: This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+Fits in the column{% sidenote(side="right") %}
+  This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+{% end %}
 
 <!-- LATER table-narrow without clear:both, with scrollbar as fallback in case we're wrong, same for code and images -->
 <div class="table">
@@ -141,9 +140,9 @@ Fits in the column[^footnote-narrow-table]
 
 </div>
 
-Overflows the column but fits on the screen[^footnote-wide-table]
-
-[^footnote-wide-table]: This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+Overflows the column but fits on the screen{% sidenote(side="right") %}
+  This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+{% end %}
 
 <div class="table">
 
@@ -225,15 +224,15 @@ Taller than screen
 
 ## Heading 2 - image
 
-Fits in the column[^footnote-narrow-image]
-
-[^footnote-narrow-image]: This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+Fits in the column{% sidenote(side="right") %}
+  This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+{% end %}
 
 ![Image](/stripes-400x32.png)
 
-Overflows the column but fits on the screen[^footnote-wide-image]
-
-[^footnote-wide-image]: This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+Overflows the column but fits on the screen{% sidenote(side="right") %}
+  This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+{% end %}
 
 ![Image](/stripes-1200x32.png)
 
