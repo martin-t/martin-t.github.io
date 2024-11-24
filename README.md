@@ -12,6 +12,10 @@ Use `zola check` to check internal and external links in md files (templates are
 
 Creating `.markdownlint.jsonc` to allow inline HTML caused it to start reporting line length warnings too fsr. Maybe there is some implicit default that only apples when the file doesn't exist?
 
+Use `<br><br>` for paragraphs in sidenotes.
+Sometimes a blank line works (inside lists) but other times it causes the second paragraph to appear in normal text,
+possibly because markdown doesn't understand zola shortcodes.
+
 Testing on other devices:
 
 - Use `zola serve --drafts --interface 0.0.0.0`

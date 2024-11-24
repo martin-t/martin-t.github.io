@@ -1,5 +1,10 @@
-<sup class="sidenote-reference"></sup>
-<span class="sidenote-definition {% if side %}{{side}}{% else %}auto{% endif %}">
-  <sup class="sidenote-definition-label"></sup>
+<sup class="sidenote-reference"></sup><span class="sidenote-definition {% if side %}
+      {{side}}
+    {% elif nth is odd %}
+      left
+    {% else %}
+      right
+    {% endif %}">
+  <span class="sidenote-definition-label"></span>
   {{ body | markdown(inline=True) | safe }}
 </span>

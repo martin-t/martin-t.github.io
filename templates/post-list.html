@@ -18,6 +18,8 @@
     <p><a class="title" href="{{ post.permalink | safe }}">{{ post.title }}</a></p>
     <div class="page-meta">
       <em>{{ post.date }} {% if post.updated %} (updated {{ post.updated }}) {% endif %}</em>
+      <span></span>
+      <em>{{ post.word_count }} words / {{ post.reading_time }} minutes</em>
     </div>
     <p>{{ post.summary | safe }}</p>
   </li>

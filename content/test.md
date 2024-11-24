@@ -7,26 +7,25 @@ This page tests all kinds of combinations of all kinds of stuff. All content bel
 
 ## Heading 2 - text
 
-TODO FIX manual sidenotes
+<!-- Sidenotes in different paragraphs to see if they still alternate sides correctly. -->
 
-<!-- Sidenotes in different paragraphs to see if they alternate sides. -->
-
-Lorem ipsum{% sidenote() %}
-  This is sidenote 1<br>with a line break.
+Lorem{% sidenote() %}
+  This is sidenote 1.
 {% end %}
-{% sidenote() %}
-  This is sidenote 2<br>with a line break.
+ipsum{% sidenote() %}
+  This is sidenote 2.
 {% end %}
-{% sidenote() %}
-  This is sidenote 3<br>with a line break.
-{% end %} dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
+dolor{% sidenote() %}
+  This is sidenote 3.
+{% end %}
+sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
 
 Maecenas ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.{% sidenote() %}
-  This is sidenote 4<br>with a line break.
+  This is sidenote 4.
 {% end %}
 
 Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor{% sidenote() %}
-  This is sidenote 5<br>with a line break.
+  This is sidenote 5.
 {% end %}.
 
 ### Heading 3 - fancy text
@@ -37,15 +36,18 @@ Lorem **ipsum** dolor _sit_ amet, _**consectetur**_ adipiscing **_clit_**. Donec
 
 ### Heading 3 - links
 
-At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).{% sidenote(side="right") %}
-  At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).
+At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>Linebreaks.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).{% sidenote(side="right") %}
+  At least one of [these](/test) [three](.) [links](/test/) is visited and they're clearly separate.<br>Linebreaks.<br>This is an [unvisited multiword link](https://example831041059898111108101101116.com).
 {% end %}
 
 <!-- The unvisited link should give server not found so the browser doesn't add it to history and it remains unvisited. At least until someone registers the domain just to break my test page. -->
 
 ### Heading 3 - tooltips
 
-It's one of <span title="This one.">these</span> words. And <span style="text-decoration: underline dotted;" title="Yup, this.">this</span> one.
+It's{% sidenote() %}
+  In the middle of a sentence.
+{% end %}
+one of <span title="This one.">these</span> words. And <span style="text-decoration: underline dotted;" title="Yup, this is the other one.">this</span> one.
 
 ### Heading 3 - nested list
 
@@ -53,7 +55,7 @@ It's one of <span title="This one.">these</span> words. And <span style="text-de
   - Item 1.1
   - Item 1.2
     - Item 1.2.1
-    - Item 1.2.2
+    - Item 1.2.2{% sidenote() %}This is wrong.{% end %} {% sidenote() %}Sidenote inside an item and long enough to span multiple lines to detect incorrect horizontal positioning. Other side.{% end %}
 - Item 2
   - Item 2.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
   - Item 2.2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
@@ -65,15 +67,20 @@ It's one of <span title="This one.">these</span> words. And <span style="text-de
 <!-- All sidenotes on the left to test heading anchors don't get pushed down by them. -->
 
 Lorem ipsum{% sidenote(side="left") %}
-  This is footnote 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-{% end %}{% sidenote(side="left") %}
-  This is footnote 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-{% end %}{% sidenote(side="left") %}
-  This is footnote 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+  This is sidenote 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.<br>And 1 forced linebreak.
+{% end %}
+{% sidenote(side="left") %}
+  This is sidenote 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+  <br><br>
+  And 2 forced linebreaks. This is effectively a new paragraph.
+{% end %}
+{% sidenote(side="left") %}
+  This is sidenote 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
 {% end %}
 dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.{% sidenote(side="left") %}
-  This is footnote 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-{% end %} Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. I said it's just filler, why are you reading <span title=":D">this<span>? Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+  This is sidenote 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+{% end %}
+Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. I said it's just filler, why are you reading <span title=":D">this<span>? Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
 
 ##### Heading 5 - even more text
 
@@ -94,7 +101,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Se
 ## Heading 2 - code
 
 Fits in the column{% sidenote(side="right") %}
-  This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+  This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below.
 {% end %}
 
 ```rust
@@ -103,8 +110,8 @@ fn main() {
 }
 ```
 
-Overflows the column but fits on the screen{% sidenote(side="right") %}
-  This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+Wider than the column but fits on the screen{% sidenote(side="right") %}
+  This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below.
 {% end %}
 
 ```rust
@@ -113,7 +120,7 @@ fn main() {
 }
 ```
 
-Overflows the screen
+Wider than the screen
 
 ```rust
 fn main() {
@@ -128,7 +135,7 @@ Very long inline code block `// This comment turns this line into a very, very l
 ## Heading 2 - table
 
 Fits in the column{% sidenote(side="right") %}
-  This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+  This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below.
 {% end %}
 
 <!-- LATER table-narrow without clear:both, with scrollbar as fallback in case we're wrong, same for code and images -->
@@ -140,8 +147,8 @@ Fits in the column{% sidenote(side="right") %}
 
 </div>
 
-Overflows the column but fits on the screen{% sidenote(side="right") %}
-  This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+Wider than the column but fits on the screen{% sidenote(side="right") %}
+  This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below.
 {% end %}
 
 <div class="table">
@@ -152,7 +159,7 @@ Overflows the column but fits on the screen{% sidenote(side="right") %}
 
 </div>
 
-Overflows the screen
+Wider than the screen
 
 <div class="table">
 
@@ -164,12 +171,11 @@ Overflows the screen
 
 Taller than screen
 
-<!-- LATER Restore table div? -->
-<!-- <div class="table"> -->
+<!-- Must not have a div so that sticks header and sidenotes work. -->
 
-| Column 1 | Column 2 | Column 3 |
+| Column&nbsp;1{% sidenote() %}Sidenote in table header{% end %} | Column 2 | Column 3[^table-fn-header] |
 | -------- | -------- | -------- |
-| Cell 1   | Cell 2   | Cell 3   |
+| Cell 1[^table-fn-cell] | Cell 2   | Cell 3{% sidenote() %}In table cell{% end %} |
 | Cell 4   | Cell 5   | Cell 6   |
 | Cell 7   | Cell 8   | Cell 9   |
 | Cell 10  | Cell 11  | Cell 12  |
@@ -220,22 +226,38 @@ Taller than screen
 | Cell 145 | Cell 146 | Cell 147 |
 | Cell 148 | Cell 149 | Cell 150 |
 
-<!-- </div> -->
+[^table-fn-header]: Footnote inside table header.
+[^table-fn-cell]: Footnote inside table cell.
 
 ## Heading 2 - image
 
 Fits in the column{% sidenote(side="right") %}
-  This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below. Message repeats. This is a footnote that should not interfere with the narrow content below.
+  This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below. Message repeats. This is a sidenote that should not interfere with the narrow content below.
 {% end %}
 
 ![Image](/stripes-400x32.png)
 
-Overflows the column but fits on the screen{% sidenote(side="right") %}
-  This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below. Message repeats. This is a footnote that should not interfere with the wide content below.
+Wider than the column but fits on the screen{% sidenote(side="right") %}
+  This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below. Message repeats. This is a sidenote that should not interfere with the wide content below.
 {% end %}
 
 ![Image](/stripes-1200x32.png)
 
-Overflows the screen
+Wider than the screen
 
 ![Image](/stripes-4000x32.png)
+
+Lorem ipsum odor amet, consectetuer adipiscing elit.{% sidenote() %}
+  Some text
+  ![Image](/stripes-400x32.png)
+  More text
+{% end %}
+Efficitur per himenaeos fringilla arcu nam neque mi sociosqu bibendum. Himenaeos sit ultrices dui mattis massa dapibus sed cursus imperdiet. Et ipsum cubilia lacinia placerat vivamus potenti molestie sit. Efficitur ante varius nullam tincidunt ultricies nulla. Apellentesque auctor ultricies non metus; sapien convallis. Eleifend in a class tristique scelerisque sed tellus justo.
+
+Penatibus in eu hendrerit aliquet consequat cras dapibus arcu tempor. Maecenas ex dapibus bibendum habitant interdum parturient penatibus. Auctor sapien aliquet finibus conubia torquent gravida nam. Tristique nibh porta mi hac, sem pretium. Magnis ridiculus phasellus ultricies leo malesuada lorem mauris gravida. Torquent velit nisl urna venenatis tortor ex. Luctus non etiam sagittis eu mus tristique facilisis.
+
+Amet magnis sit viverra elit ultricies porta. Efficitur dui finibus habitasse primis torquent, enim nunc ornare pellentesque. Quisque sapien sapien sollicitudin ornare massa a scelerisque morbi orci. Blandit est semper eleifend cursus; per aptent duis arcu ipsum. Etiam lacus fames primis a metus metus gravida. Facilisis varius potenti ultrices rhoncus fringilla est posuere. Bibendum consequat tellus tristique, augue per consectetur posuere. Placerat turpis ad; gravida mauris nisi porta.
+
+Per ante nisl urna elit, in integer. Tortor integer praesent iaculis morbi consectetur phasellus odio? Duis cras fermentum felis dapibus metus erat tellus. Est id odio leo hac duis praesent parturient. Iaculis nunc dapibus primis sociosqu augue etiam proin. Ultricies hac ultricies viverra arcu duis molestie; tempus penatibus. Aliquam porttitor ornare accumsan pretium habitant in maximus.
+
+Augue sodales nec in luctus morbi, sodales faucibus. Netus diam nibh facilisis praesent tincidunt dictum hac hendrerit. Sed posuere tristique amet turpis duis amet. In potenti ante; eleifend adipiscing laoreet adipiscing. Facilisis morbi nisi mattis hendrerit; finibus ligula orci velit interdum. Vulputate praesent arcu natoque condimentum convallis duis quis accumsan. Scelerisque viverra commodo justo; ut urna dis. Scelerisque curabitur arcu hendrerit imperdiet mauris enim non lacus.

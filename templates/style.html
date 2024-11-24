@@ -1,4 +1,5 @@
 <style>
+
 /* Fonts */
 
 /*
@@ -109,13 +110,14 @@ Mobile layout - sidenotes inline:
 */
 :root {
   --body-margin: 1rem;
-  --width-scrollbar: 20px; /* LATER Overwrite with actual value from JS? */
+  --width-scrollbar: 25px; /* LATER Overwrite with actual value from JS? */
   --full: calc(100vw - var(--width-scrollbar));
-  --width-sidenote-gap: 1.5rem;
   --width-center-max: 42rem;
   --width-center-min: 30rem;
+  --width-sidenote-gap: 1.5rem;
   --width-sidenote-max: 18rem;
   --width-sidenote-min: 12rem;
+  --width-sidenote-padding: 0.2rem;
 }
 @media (min-width: 60rem) {
   :root {
@@ -130,7 +132,6 @@ Mobile layout - sidenotes inline:
   }
 }
 :root {
-  /* LATER Test what happens with manual sidenotes and 100% here - things should break */
   --width-extra-space: calc(var(--full) - var(--width-center) - 2 * var(--width-sidenote-gap) - 2 * var(--width-sidenote) - 2 * var(--body-margin));
   --width-sidenote-margin: calc(var(--width-extra-space) / 2);
 }
@@ -174,8 +175,6 @@ Pages for playing with colors:
 :root {
   --color-light-link-header-unvisited: var(--color-light-heading);
   --color-light-link-header-visited: var(--color-light-foreground);
-  --color-light-link-post-unvisited: var(--color-light-heading); /* TODO use */
-  --color-light-link-post-visited: var(--color-light-foreground);
   --color-light-link-text-unvisited: var(--color-light-heading);
   --color-light-link-text-visited: var(--color-light-foreground);
   --color-light-link-hover: var(--color-light-gray);
@@ -189,7 +188,6 @@ body {
   margin-bottom: 5rem;
   background-color: var(--color-light-background);
   color: var(--color-light-foreground);
-  /* font-size: 1.2em; LATER Try with width 50rem, make configurable */
 }
 body.serif {
   font-family: serif; /* This ends up as Noto Serif on Kubuntu */
@@ -309,16 +307,20 @@ ul.posts {
   padding: 0;
 }
 ul.posts li {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+ul.posts p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 ul.posts li a.title {
   font-weight: bold;
   font-size: 1.2em;
 }
 p.drafts-link {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 4em;
+  margin-bottom: 4em;
   font-size: 1.2em;
 }
 
@@ -326,10 +328,10 @@ p.drafts-link {
 
 /* When changing this, make sure it still works with some elements missing.
 For example some pages don't have a date. */
-div.page-meta {
+.page-meta {
   display: flex;
 }
-div.page-meta span {
+.page-meta span {
   /* Act as a separator */
   flex: auto;
 }
@@ -419,14 +421,13 @@ div.tooltip-definition {
   border: 1px solid var(--color-light-gray);
 }
 
-/* Footnotes / sidenotes */
+/* Sidenotes */
 
-/* Accessibility note - footnote and backlink should have diff text: https://jkorpela.fi/www/fn.html#br */
-/* TODO FIX Manual sidenotes (keep code for MD footnotes as backup?) */
+/* LATER Accessibility - footnote and backlink should have diff text: https://jkorpela.fi/www/fn.html#br */
 /* TODO Fix heading anchors - position everything using absolute x positions? Parent relative, child absolute? */
 
 /*
-Notes about (side)notes:
+Notes about (side)notes / There's no good way to do sidenotes in CSS but I tried all the bad ones so you don't have to:
 - Future article:
   - TL;DR: CSS is shit and there's no good way to implement sidenotes. There are multiple bad ones so let's explore all of them and see when they break, how they break and, given my limited CSS knowledge, why they break so you can pick the least bad option for your website.
   - You might be thinking: "But wait your blog has pretty good sidenotes, there must be a way". No. My sidenotes suck, they only look OK because I take great care to avoid any of the edgecases of the particular method I chose.
@@ -455,18 +456,18 @@ Notes about (side)notes:
 - Vertical positioning:
   - Markdown footnotes are a separate paragraph (in a div),
     there's no way to recover the original height information.
-  - Therefore footnotes have to be inside the paragraph's element - written manually in HTML.
+  - Therefore sidenotes have to be inside the paragraph's element - written manually in HTML.
   - Inline elements and some block elements such as <p> can't contain block elements,
     otherwise, they get automatically closed.
     Therefore, sidenotes have to use inline elements only.
-  - Eventually we'll be able to use CSS Anchor Positioning even for Markdown footnotes
+  - Eventually we'll be able to use CSS Anchor Positioning even for Markdown sidenotes
     but it's not supported enough yet: https://caniuse.com/css-anchor-positioning
 
 - Horizontal positioning:
   - Most approaches use a combination of float and a negative margin to move the note to the side.
   - We have no container element so a negative margin is useless.
   - The trick is to use `calc` with the width of the side areas
-    and push the footnote away from the screen edge instead of the main content.
+    and push the sidenote away from the screen edge instead of the main content.
   - (LATER Blog post should explain using an image - compare Tufte-likes and this.)
 
 - Gwern has a very comprehensive overview of existing implementations - https://gwern.net/sidenote. Extra info:
@@ -494,15 +495,36 @@ Notes about (side)notes:
   - Uses a trick with hidden checkboxes, not sure why.
 - Other impls:
   - https://scripter.co/sidenotes-using-only-css/
-  - Written after Gwern's article, similar to Tufte, doesn't contain any significant improvements.
-  - Uses inline elements, positions them using `float: left` and moves them up a bit for no reason.
-  - Generates numbers using a CSS counter.
+    - Written after Gwern's article, similar to Tufte, doesn't contain any significant improvements.
+    - Uses inline elements, positions them using `float: left` and moves them up a bit for no reason.
+    - Generates numbers using a CSS counter.
+  - [stilldrinking.org](http://www.stilldrinking.org/grammar-maquis) ([archive](https://web.archive.org/web/20231025082455/http://www.stilldrinking.org/grammar-maquis))
+    - Position calculated by JS.
+  - [verdagon.dev](https://verdagon.dev/blog/generational-references) ([archive](https://web.archive.org/web/20231013010305/https://verdagon.dev/blog/generational-references))
+    - Position calculated by JS but has a backup: The article is split into vertical segments, without JS, sidenotes end up at the top of their segment which is usually near the reference.
+  - [predr.ag](https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/) ([archive](https://web.archive.org/web/20231015013845/https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/))
+    - Sidenotes are part of the paragraph in HTML and positioned to the side in CSS using float and negative margins. They never overlap with each other but sometimes do with headings. They're slightly misaligned when used from elements which don't span the entire width of the main article such as <li>. Note that they're always on the right, this misalignment might produce overlap with the main article if placed on the left in a deeply nested bullet point.
 */
 
 /*
-Float+clear conflicts with other elements that use it but puts sidenotes below each other.
-Position absolute doesn't collide but sidenotes need to be manually positioned to not overlap.
-Postion relative doesn't collide and doesn't overlap but leaves empty space at the original location.
+Positioning:
+
+- Float+clear conflicts with other elements that use it but puts sidenotes below each other.
+- Position absolute doesn't collide but sidenotes need to be manually positioned to not overlap.
+- Postion relative doesn't collide and doesn't overlap but leaves empty space at the original location.
+- CSS anchor positioning is not supported yet in Firefox: https://caniuse.com/css-anchor-positioning
+
+Therefore we use float+clear and try to avoid it for other elements
+unless we are OK with them pushing down or being pushed down by sidenotes.
+Horizontal positioning is done using negative margins.
+This works fine inside <p> elements because they all have the same width.
+However <li> elements are indented so sidenotes on the left side are misaligned.
+Right sidenotes work fine so this is currently the best I can do.
+Similar issue with sidenotes inside tables. Might be better to use footnots for (wide) tables.
+
+There is no way to alternate sides using just CSS because nth-of-type only counts the direct children of one parent.
+My sidenotes have different parents unless there's many of them in the same paragraph.
+Therefore I use zola's shortcodes and their "nth" variable.
 */
 
 body {
@@ -511,43 +533,68 @@ body {
 .sidenote-reference::before {
   counter-increment: sidenotes;
   content: counter(sidenotes);
-  margin: 0 0 0 0.1em;
+  /* Wider shadow */
+  padding: 0 0.1em;
+  /* Avoid a large gap before the next word.
+  Note that sidenote.html must not add extra whitespace */
+  margin: 0 -0.1em 0 0;
   color: var(--color-light-heading);
 }
-.sidenote-reference:hover::before {
-  color: var(--color-light-gray);
-  /* Box shadow */
-  box-shadow: 0 0 0 1px var(--color-light-gray);
-}
-.sidenote-definition.right, .sidenote-definition.auto:nth-of-type(even) {
+.sidenote-definition.right {
   float: right;
   clear: right;
   margin-right: calc(-1 * (var(--width-sidenote) + var(--width-sidenote-gap)));
 }
-.sidenote-definition.left, .sidenote-definition.auto:nth-of-type(odd) {
+.sidenote-definition.left {
   float: left;
   clear: left;
-  margin-left: calc(-1 * (var(--width-sidenote) + var(--width-sidenote-gap)));
+  margin-left: calc(0px - var(--width-sidenote) - var(--width-sidenote-gap));
 }
 .sidenote-definition {
-  /* Margins don't seem to collapse on floated elements. */
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
   width: var(--width-sidenote);
 
-  /* Make sure the top shadow doesn't intersect the superscript on label hover */
-  padding: 0.5em 0.3em;
+  /* Make sure the top shadow doesn't intersect the superscript on label hover. */
+  padding: var(--width-sidenote-padding);
+  /* Push it up a little so it aligns better with the line it's on.
+  Note the font size is smaller so it shouldn't subtract the whole padding. */
+  margin-top: -0.1em;
+  /* This should at least as wide as the empty line in multi paragraph sidenotes.
+  Note that margins don't seem to collapse on floated elements. */
+  margin-bottom: 0.75em;
 
   font-size: 0.8em;
   text-align: justify;
 }
 .sidenote-definition-label::before {
-  content: counter(sidenotes);
+  content: "^" counter(sidenotes);
   color: var(--color-light-heading);
 }
-.sidenote-reference:hover + .sidenote-definition {
+.sidenote-reference:hover::before,
+.sidenote-reference:has(+ .sidenote-definition:hover)::before {
+  color: var(--color-light-gray);
+  /* Box around the reference */
+  box-shadow: 0 0 0 1px var(--color-light-gray);
+}
+.sidenote-reference:hover + .sidenote-definition,
+.sidenote-reference + .sidenote-definition:hover {
+  /* Lines above and below the definition */
   box-shadow: 0 -1px var(--color-light-gray), 0 1px var(--color-light-gray);
 }
+
+/* Don't show sidenotes in summaries.
+Though I have to admit, seeing my rants seep out into the list of posts is kinda funny. */
+ul.posts .sidenote-definition,
+ul.posts .sidenote-reference {
+  display: none;
+}
+
+/* Classic footnotes */
+
+/*
+This is kept only as backup.
+They should not be used except for exceptional circumstances.
+Like notes in tables. :(
+*/
 
 sup.footnote-reference {
   margin: 0 0.1em;
@@ -557,10 +604,6 @@ sup.footnote-reference a {
   text-decoration: none;
 }
 
-ul.posts div.footnote-definition {
-  /* Don't show footnotes in summaries. Refs are hidden by zola, also hide defs. */
-  display: none;
-}
 div:nth-child(even of .footnote-definition) {
   float: right;
   clear: right;
@@ -595,6 +638,11 @@ div.footnote-definition p {
   display: inline; /* On the same line as the number */
 }
 
+ul.posts div.footnote-definition {
+  /* Don't show footnotes in summaries. Refs are hidden by zola, also hide defs. */
+  display: none;
+}
+
 /* LATER Use JS to remove clear:both from tables/code/images which are narrower than main content. */
 
 /* Images */
@@ -614,6 +662,9 @@ main > p > img, main > p > video {
   then move it -50% of its width */
   margin-left: 50%;
   transform: translateX(-50%);
+}
+.sidenote-definition > img {
+  max-width: calc(var(--width-sidenote) - 2 * var(--width-sidenote-padding));
 }
 
 figure.right {
@@ -717,4 +768,5 @@ code {
 :not(pre) > code {
   background-color: var(--color-light-background-code);
 }
+
 </style>
