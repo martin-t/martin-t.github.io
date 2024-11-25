@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://martin-t.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/about/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/baseless/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/drafts/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/drafts/blog-requirements/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/drafts/rust-incremental-compile-times/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/drafts/undefined-behavior-examples/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/posts/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/posts/not-dead-yet/</loc>
+        <lastmod>2024-01-25</lastmod>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/projects/</loc>
+    </url>
+    <url>
+        <loc>https://martin-t.github.io/test/</loc>
+    </url>
+</urlset>
