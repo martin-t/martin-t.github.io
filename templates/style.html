@@ -513,6 +513,9 @@ Positioning:
 - Position absolute doesn't collide but sidenotes need to be manually positioned to not overlap.
 - Postion relative doesn't collide and doesn't overlap but leaves empty space at the original location.
 - CSS anchor positioning is not supported yet in Firefox: https://caniuse.com/css-anchor-positioning
+- LATER Consider redoing the whole layout,
+    adding a container to restrict most elements to the main column like everyone else
+    and allow some like tables/images/code to be wider: https://stackoverflow.com/a/24895631
 
 Therefore we use float+clear and try to avoid it for other elements
 unless we are OK with them pushing down or being pushed down by sidenotes.
@@ -767,6 +770,13 @@ code {
 }
 :not(pre) > code {
   background-color: var(--color-light-background-code);
+}
+
+/* Misc */
+
+hr {
+  border: none;
+  border-bottom: 1px dotted;
 }
 
 </style>

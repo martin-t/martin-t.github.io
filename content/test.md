@@ -3,7 +3,7 @@ title = "Hidden test page"
 # date = 1337-04-20 Don't include a date or the page will appear in the feed.
 +++
 
-This page tests all kinds of combinations of all kinds of stuff. All content below is just filler text.
+This page tests all kinds of combinations of all kinds of stuff for testing the CSS style. All content below is just filler text.
 
 ## Heading 2 - text
 
@@ -23,6 +23,8 @@ sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum m
 Maecenas ligulaac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.{% sidenote() %}
   This is sidenote 4.
 {% end %}
+
+<hr>
 
 Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor{% sidenote() %}
   This is sidenote 5.
@@ -55,7 +57,7 @@ one of <span title="This one.">these</span> words. And <span style="text-decorat
   - Item 1.1
   - Item 1.2
     - Item 1.2.1
-    - Item 1.2.2{% sidenote() %}This is wrong.{% end %} {% sidenote() %}Sidenote inside an item and long enough to span multiple lines to detect incorrect horizontal positioning. Other side.{% end %}
+    - Item 1.2.2{% sidenote() %}This is wrong. No way to fix with CSS alone.{% end %} {% sidenote() %}Sidenote inside an item and long enough to span multiple lines to detect incorrect horizontal positioning. Other side.{% end %}
 - Item 2
   - Item 2.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
   - Item 2.2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
