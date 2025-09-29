@@ -120,6 +120,8 @@ And provide a copy button where the "Copied" message is _not_ animated. Seriousl
 
 <!-- TODO Screenshot of SO on phone (in Pictures) -->
 
+<!-- TODO Rant about https://www.meziantou.net/referencing-an-analyzer-from-a-project.htm - a code block expands on mouse hover - they know the size is an issue but still half my screen is empty. -->
+
 ## Headings must be linkable
 
 Either the heading itself or an icon next to it.
