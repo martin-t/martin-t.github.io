@@ -33,6 +33,8 @@ LATER: Run `zola check` on CI, make sure there are no warnings like `Warning: Or
 
 LATER: Comments <https://giscus.app/> (e.g. <https://teadrinkingprogrammer.github.io/tranquil-demo/blog/markdown/#1>)
 
+LATER: Font size based on view angle: <https://legibility.info/font-size-calculator>, <https://aihal-accessibility.com/articles/cap-height-view-angle>
+
 ## License
 
 Code samples are dual-licensed under [Apache 2.0](LICENSE-APACHE-2.0.txt) or [MIT](LICENSE-MIT.txt) - you can use them pretty much freely.
