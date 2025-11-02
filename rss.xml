@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>martin-t::blog</title>
+      <link>https://martin-t.github.io</link>
+      <description>Rust, gamedev, Rust gamedev, mostly</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://martin-t.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Thu, 25 Jan 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Not dead yet</title>
+          <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+          <author>martin-t</author>
+          <link>https://martin-t.github.io/posts/not-dead-yet/</link>
+          <guid>https://martin-t.github.io/posts/not-dead-yet/</guid>
+          <description xml:base="https://martin-t.github.io/posts/not-dead-yet/">&lt;p&gt;Every abandoned blog seems to have a last post explaining that the author is not dead (yet) and about to resume regular blogging any minute now. I can do better; I&#x27;ll start with that post.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
